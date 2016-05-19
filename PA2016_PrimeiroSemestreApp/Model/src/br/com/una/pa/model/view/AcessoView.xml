@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AcessoView"
+  Version="11.1.2.64.36"
+  SelectList="Acesso.ACESSO, 
+       Acesso.PERFIL, 
+       Acesso.MODULO"
+  FromList="ACESSO Acesso"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Acesso"
+    Entity="br.com.una.pa.model.entity.Acesso"/>
+  <ViewAttribute
+    Name="Acesso1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Acesso"
+    EntityUsage="Acesso"
+    AliasName="ACESSO"/>
+  <ViewAttribute
+    Name="Perfil"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Perfil"
+    EntityUsage="Acesso"
+    AliasName="PERFIL"/>
+  <ViewAttribute
+    Name="Modulo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Modulo"
+    EntityUsage="Acesso"
+    AliasName="MODULO"/>
+</ViewObject>
