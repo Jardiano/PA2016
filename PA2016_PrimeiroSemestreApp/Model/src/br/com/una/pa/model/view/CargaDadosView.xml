@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CargaDadosView"
+  Version="11.1.2.64.36"
+  SelectList="CargaDados.ID_CARGA_DADOS, 
+       CargaDados.QUANTCLIENTE, 
+       CargaDados.QUANTFATURAMENTO, 
+       CargaDados.PESOMEDIO, 
+       CargaDados.ITEM_IDITEM, 
+       CargaDados.RESP_IDRESP, 
+       CargaDados.AREA_IDAREA"
+  FromList="CARGA_DADOS CargaDados"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="CargaDados"
+    Entity="br.com.una.pa.model.entity.CargaDados"/>
+  <ViewAttribute
+    Name="IdCargaDados"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdCargaDados"
+    EntityUsage="CargaDados"
+    AliasName="ID_CARGA_DADOS"/>
+  <ViewAttribute
+    Name="Quantcliente"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Quantcliente"
+    EntityUsage="CargaDados"
+    AliasName="QUANTCLIENTE"/>
+  <ViewAttribute
+    Name="Quantfaturamento"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Quantfaturamento"
+    EntityUsage="CargaDados"
+    AliasName="QUANTFATURAMENTO"/>
+  <ViewAttribute
+    Name="Pesomedio"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Pesomedio"
+    EntityUsage="CargaDados"
+    AliasName="PESOMEDIO"/>
+  <ViewAttribute
+    Name="ItemIditem"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ItemIditem"
+    EntityUsage="CargaDados"
+    AliasName="ITEM_IDITEM"/>
+  <ViewAttribute
+    Name="RespIdresp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RespIdresp"
+    EntityUsage="CargaDados"
+    AliasName="RESP_IDRESP"/>
+  <ViewAttribute
+    Name="AreaIdarea"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AreaIdarea"
+    EntityUsage="CargaDados"
+    AliasName="AREA_IDAREA"/>
+</ViewObject>

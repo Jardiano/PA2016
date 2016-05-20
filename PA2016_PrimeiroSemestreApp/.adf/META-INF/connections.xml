@@ -1,8 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-   <Reference name="Sics" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="Sics" xmlns="">
+   <Reference name="PA2016" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="PA2016" xmlns="">
       <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
       <RefAddresses>
+         <StringRefAddr addrType="sid">
+            <Contents>XE</Contents>
+         </StringRefAddr>
          <StringRefAddr addrType="subtype">
             <Contents>oraJDBC</Contents>
          </StringRefAddr>
@@ -10,15 +13,12 @@
             <Contents>1521</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="hostname">
-            <Contents>cdsdbsd01</Contents>
+            <Contents>localhost</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="user">
-            <Contents>sicsv4</Contents>
+            <Contents>PA2016</Contents>
          </StringRefAddr>
          <SecureRefAddr addrType="password"/>
-         <StringRefAddr addrType="serviceName">
-            <Contents>pdbcdsd.casasoft.com.br</Contents>
-         </StringRefAddr>
          <StringRefAddr addrType="oraDriverType">
             <Contents>thin</Contents>
          </StringRefAddr>

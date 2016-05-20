@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ItemView"
+  Version="11.1.2.64.36"
+  SelectList="Item.ID_ITEM, 
+       Item.COD_ITEM, 
+       Item.NM_ITEM, 
+       Item.CLASSE_IDTIPO"
+  FromList="ITEM Item"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Item"
+    Entity="br.com.una.pa.model.entity.Item"/>
+  <ViewAttribute
+    Name="IdItem"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdItem"
+    EntityUsage="Item"
+    AliasName="ID_ITEM"/>
+  <ViewAttribute
+    Name="CodItem"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CodItem"
+    EntityUsage="Item"
+    AliasName="COD_ITEM"/>
+  <ViewAttribute
+    Name="NmItem"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NmItem"
+    EntityUsage="Item"
+    AliasName="NM_ITEM"/>
+  <ViewAttribute
+    Name="ClasseIdtipo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ClasseIdtipo"
+    EntityUsage="Item"
+    AliasName="CLASSE_IDTIPO"/>
+  <ViewLinkAccessor
+    Name="CargaDadosView"
+    ViewLink="br.com.una.pa.model.view.FkItemIditemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

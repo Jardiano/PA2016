@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AreaView"
+  Version="11.1.2.64.36"
+  SelectList="Area.ID_AREA, 
+       Area.NM_AREA"
+  FromList="AREA Area"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Area"
+    Entity="br.com.una.pa.model.entity.Area"/>
+  <ViewAttribute
+    Name="IdArea"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdArea"
+    EntityUsage="Area"
+    AliasName="ID_AREA"/>
+  <ViewAttribute
+    Name="NmArea"
+    PrecisionRule="true"
+    EntityAttrName="NmArea"
+    EntityUsage="Area"
+    AliasName="NM_AREA"/>
+  <ViewLinkAccessor
+    Name="CargaDadosView"
+    ViewLink="br.com.una.pa.model.view.FkAreaLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

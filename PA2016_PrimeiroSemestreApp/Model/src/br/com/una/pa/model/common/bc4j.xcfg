@@ -4,13 +4,13 @@
       <AppModuleConfig name="AppModuleLocal" DeployPlatform="LOCAL" jbo.project="br.com.una.pa.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="br.com.una.pa.model.AppModule">
          <Database jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="br.com.una.pa.model.AppModule"/>
-         <Custom JDBCDataSource="java:comp/env/jdbc/SicsDS"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/PA2016DS"/>
       </AppModuleConfig>
       <AppModuleConfig name="AppModuleShared" DeployPlatform="LOCAL" jbo.project="br.com.una.pa.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="br.com.una.pa.model.AppModule">
          <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
          <Database jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="br.com.una.pa.model.AppModule"/>
-         <Custom JDBCDataSource="java:comp/env/jdbc/SicsDS"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/PA2016DS"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

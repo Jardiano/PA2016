@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ParametrizacaoView"
+  Version="11.1.2.64.36"
+  SelectList="Parametrizacao.ID_PARAMETRO_SISTEMA, 
+       Parametrizacao.NM_PARAMETRO, 
+       Parametrizacao.VL_PARAMETRO"
+  FromList="PARAMETRIZACAO Parametrizacao"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Parametrizacao"
+    Entity="br.com.una.pa.model.entity.Parametrizacao"/>
+  <ViewAttribute
+    Name="IdParametroSistema"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdParametroSistema"
+    EntityUsage="Parametrizacao"
+    AliasName="ID_PARAMETRO_SISTEMA"/>
+  <ViewAttribute
+    Name="NmParametro"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NmParametro"
+    EntityUsage="Parametrizacao"
+    AliasName="NM_PARAMETRO"/>
+  <ViewAttribute
+    Name="VlParametro"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VlParametro"
+    EntityUsage="Parametrizacao"
+    AliasName="VL_PARAMETRO"/>
+</ViewObject>

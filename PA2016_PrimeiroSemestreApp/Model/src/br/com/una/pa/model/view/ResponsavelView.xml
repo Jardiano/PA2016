@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ResponsavelView"
+  Version="11.1.2.64.36"
+  SelectList="Responsavel.ID_RESP, 
+       Responsavel.NM_RESP"
+  FromList="RESPONSAVEL Responsavel"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <EntityUsage
+    Name="Responsavel"
+    Entity="br.com.una.pa.model.entity.Responsavel"/>
+  <ViewAttribute
+    Name="IdResp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdResp"
+    EntityUsage="Responsavel"
+    AliasName="ID_RESP"/>
+  <ViewAttribute
+    Name="NmResp"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NmResp"
+    EntityUsage="Responsavel"
+    AliasName="NM_RESP"/>
+  <ViewLinkAccessor
+    Name="CargaDadosView"
+    ViewLink="br.com.una.pa.model.view.FkRespIdrespLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>
