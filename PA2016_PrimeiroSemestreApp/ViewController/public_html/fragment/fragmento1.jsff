@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:table value="#{bindings.ItemView1.collectionModel}" var="row" rows="#{bindings.ItemView1.rangeSize}"
+            emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.ItemView1.rangeSize}" rowBandingInterval="0"
+            selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
+            selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single" id="t1">
+    <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="true"
+               headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c1">
+      <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot1"/>
+    </af:column>
+    <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="true"
+               headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c2">
+      <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot2"/>
+    </af:column>
+    <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="true"
+               headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c3">
+      <af:outputText value="#{row.ClasseIdtipo}" shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" id="ot3"/>
+    </af:column>
+  </af:table>
+</jsp:root>

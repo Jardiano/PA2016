@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="fragmento1PageDef"
+                Package="fragment">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ItemView1Iterator" id="ItemView1">
+      <nodeDefinition DefName="br.com.una.pa.model.view.ItemView" Name="ItemView10">
+        <AttrNames>
+          <Item Value="CodItem"/>
+          <Item Value="NmItem"/>
+          <Item Value="ClasseIdtipo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
