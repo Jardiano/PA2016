@@ -4,17 +4,22 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView1Iterator"/>
+    <iterator Binds="CargaDadosView1" RangeSize="-1" DataControl="AppModuleDataControl" id="CargaDadosView1Iterator"/>
   </executables>
   <bindings>
-    <tree IterBinding="ItemView1Iterator" id="ItemView1">
-      <nodeDefinition DefName="br.com.una.pa.model.view.ItemView" Name="ItemView10">
-        <AttrNames>
-          <Item Value="CodItem"/>
-          <Item Value="NmItem"/>
-          <Item Value="ClasseIdtipo"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
+    <graph IterBinding="CargaDadosView1Iterator" id="CargaDadosView1" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="ItemIditem"/>
+            <item value="PrecoMedio"/>
+          </data>
+        </series>
+        <groups>
+          <item value="DtRealizada"/>
+        </groups>
+      </graphDataMap>
+    </graph>
   </bindings>
 </pageDefinition>

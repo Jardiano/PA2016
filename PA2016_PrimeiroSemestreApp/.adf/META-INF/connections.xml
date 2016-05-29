@@ -16,7 +16,7 @@
             <Contents>localhost</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="user">
-            <Contents>SYSTEM</Contents>
+            <Contents>pa2016</Contents>
          </StringRefAddr>
          <SecureRefAddr addrType="password"/>
          <StringRefAddr addrType="oraDriverType">

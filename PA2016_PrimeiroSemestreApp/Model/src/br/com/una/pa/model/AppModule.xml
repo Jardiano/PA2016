@@ -13,6 +13,12 @@
     Name="CargaDadosView1"
     ViewObjectName="br.com.una.pa.model.view.CargaDadosView"/>
   <ViewUsage
+    Name="DadosFuturosGrupoView1"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosGrupoView"/>
+  <ViewUsage
+    Name="DadosFuturosItemView1"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosItemView"/>
+  <ViewUsage
     Name="ItemView1"
     ViewObjectName="br.com.una.pa.model.view.ItemView"/>
   <ViewUsage

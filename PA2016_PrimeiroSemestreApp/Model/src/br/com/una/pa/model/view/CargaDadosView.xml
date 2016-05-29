@@ -8,10 +8,11 @@
   SelectList="CargaDados.ID_CARGA_DADOS, 
        CargaDados.QUANTCLIENTE, 
        CargaDados.QUANTFATURAMENTO, 
-       CargaDados.PESOMEDIO, 
        CargaDados.ITEM_IDITEM, 
        CargaDados.RESP_IDRESP, 
-       CargaDados.AREA_IDAREA"
+       CargaDados.AREA_IDAREA, 
+       CargaDados.PRECO_MEDIO, 
+       CargaDados.DT_REALIZADA"
   FromList="CARGA_DADOS CargaDados"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -42,13 +43,6 @@
     EntityUsage="CargaDados"
     AliasName="QUANTFATURAMENTO"/>
   <ViewAttribute
-    Name="Pesomedio"
-    IsNotNull="true"
-    PrecisionRule="true"
-    EntityAttrName="Pesomedio"
-    EntityUsage="CargaDados"
-    AliasName="PESOMEDIO"/>
-  <ViewAttribute
     Name="ItemIditem"
     IsNotNull="true"
     PrecisionRule="true"
@@ -69,4 +63,18 @@
     EntityAttrName="AreaIdarea"
     EntityUsage="CargaDados"
     AliasName="AREA_IDAREA"/>
+  <ViewAttribute
+    Name="PrecoMedio"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PrecoMedio"
+    EntityUsage="CargaDados"
+    AliasName="PRECO_MEDIO"/>
+  <ViewAttribute
+    Name="DtRealizada"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DtRealizada"
+    EntityUsage="CargaDados"
+    AliasName="DT_REALIZADA"/>
 </ViewObject>
