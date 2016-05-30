@@ -7,7 +7,9 @@
             <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
                 <display-name>templatePrincipalPage</display-name>
                 <facet>
-                    <facet-name>regiao</facet-name>
+                    <facet-name>
+                        regiao
+                    </facet-name>
                 </facet>
             </component>
         </af:xmlContent>
@@ -15,6 +17,7 @@
             <f:facet name="top"/>
             <f:facet name="center">
                 <!-- id="af_one_column_header_footer_stretched"   -->
+                <af:facetRef facetName="regiao"/>
             </f:facet>
             <f:facet name="bottom"/>
         </af:panelStretchLayout>

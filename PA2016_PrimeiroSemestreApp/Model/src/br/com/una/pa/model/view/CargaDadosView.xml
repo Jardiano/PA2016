@@ -18,6 +18,70 @@
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <ViewAccessor
+    Name="AreaView1"
+    ViewObjectName="br.com.una.pa.model.view.AreaView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ResponsavelView1"
+    ViewObjectName="br.com.una.pa.model.view.ResponsavelView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ItemView1"
+    ViewObjectName="br.com.una.pa.model.view.ItemView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_AreaIdarea"
+    ListVOName="AreaView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AreaIdarea"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdArea"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NmArea"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RespIdresp"
+    ListVOName="ResponsavelView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RespIdresp"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdResp"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NmResp"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ItemIditem"
+    ListVOName="ItemView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemIditem"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdItem"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CodItem"/>
+      <Item Value="NmItem"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CargaDados"
     Entity="br.com.una.pa.model.entity.CargaDados"/>
@@ -48,21 +112,45 @@
     PrecisionRule="true"
     EntityAttrName="ItemIditem"
     EntityUsage="CargaDados"
-    AliasName="ITEM_IDITEM"/>
+    AliasName="ITEM_IDITEM"
+    LOVName="LOV_ItemIditem">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RespIdresp"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="RespIdresp"
     EntityUsage="CargaDados"
-    AliasName="RESP_IDRESP"/>
+    AliasName="RESP_IDRESP"
+    LOVName="LOV_RespIdresp">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AreaIdarea"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="AreaIdarea"
     EntityUsage="CargaDados"
-    AliasName="AREA_IDAREA"/>
+    AliasName="AREA_IDAREA"
+    LOVName="LOV_AreaIdarea">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PrecoMedio"
     IsNotNull="true"

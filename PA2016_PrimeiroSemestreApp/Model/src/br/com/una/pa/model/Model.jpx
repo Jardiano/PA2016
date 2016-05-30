@@ -39,4 +39,20 @@
       <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
+  <Containee
+    Name="viewQuery"
+    PackageName="br.com.una.pa.model.view.viewQuery"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
+    Name="viewStatic"
+    PackageName="br.com.una.pa.model.view.viewStatic"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
 </JboProject>

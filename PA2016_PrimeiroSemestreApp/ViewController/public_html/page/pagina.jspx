@@ -3,9 +3,13 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="paginaPrincipal" id="d1">
+        <af:document title="pagina" id="d1">
             <af:form id="f1">
-                <af:pageTemplate viewId="/template/templatePrincipalPage.jspx" id="pt1"/>
+                <af:pageTemplate viewId="/template/templatePrincipalPage.jspx" id="pt1">
+                    <f:facet name="regiao">
+                        <af:region value="#{bindings.paginaPrincipalTF1.regionModel}" id="r1"/>
+                    </f:facet>
+                </af:pageTemplate>
             </af:form>
         </af:document>
     </f:view>

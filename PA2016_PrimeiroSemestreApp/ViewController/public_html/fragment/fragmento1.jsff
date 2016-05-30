@@ -1,23 +1,87 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
-  <dvt:lineGraph id="graph1" value="#{bindings.CargaDadosView1.graphModel}" subType="LINE_VERT_ABS"
-                 clickListener="#{bindings.CargaDadosView1.graphModel.processClick}">
-    <dvt:background>
-      <dvt:specialEffects/>
-    </dvt:background>
-    <dvt:graphPlotArea/>
-    <dvt:seriesSet>
-      <dvt:series/>
-    </dvt:seriesSet>
-    <dvt:o1Axis/>
-    <dvt:y1Axis/>
-    <dvt:legendArea automaticPlacement="AP_NEVER"/>
-    <dvt:legendTitle text="Legend Title"/>
-    <dvt:graphFootnote text="Footnote"/>
-    <dvt:graphSubtitle text="Subtitle"/>
-    <dvt:graphTitle text="Title"/>
-    <dvt:o1Title text="O1-Axis Title"/>
-    <dvt:y1Title text="Y1-Axis Title"/>
-  </dvt:lineGraph>
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout layout="scroll" id="pgl2">
+        <f:facet name="separator">
+          <af:spacer width="10" height="10" id="s1"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:panelLabelAndMessage label="#{bindings.IdItem.hints.label}" id="plam1">
+            <af:outputText value="#{bindings.IdItem.inputValue}" shortDesc="#{bindings.IdItem.hints.tooltip}" id="ot1"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.CodItem.hints.label}" id="plam2">
+            <af:outputText value="#{bindings.CodItem.inputValue}" shortDesc="#{bindings.CodItem.hints.tooltip}"
+                           id="ot2"/>
+          </af:panelLabelAndMessage>
+          <af:panelLabelAndMessage label="#{bindings.NmItem.hints.label}" id="plam3">
+            <af:outputText value="#{bindings.NmItem.inputValue}" shortDesc="#{bindings.NmItem.hints.tooltip}" id="ot3"/>
+          </af:panelLabelAndMessage>
+          <af:selectOneChoice value="#{bindings.ClasseIdtipo.inputValue}" label="#{bindings.ClasseIdtipo.label}"
+                              required="#{bindings.ClasseIdtipo.hints.mandatory}"
+                              shortDesc="#{bindings.ClasseIdtipo.hints.tooltip}" readOnly="true" id="soc1">
+            <f:selectItems value="#{bindings.ClasseIdtipo.items}" id="si1"/>
+          </af:selectOneChoice>
+          <f:facet name="footer">
+            <af:panelGroupLayout layout="horizontal" id="pgl1">
+              <f:facet name="separator">
+                <af:spacer width="10" height="1" id="s2"/>
+              </f:facet>
+              <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"/>
+              <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb2"/>
+              <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb3"/>
+              <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb4"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelFormLayout>
+        <af:panelGroupLayout layout="vertical" id="pgl3">
+          <af:panelHeader text="CargaDadosMesPrecoMedio1" id="ph1">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.CargaDadosMesPrecoMedioCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.CargaDadosMesPrecoMedioCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.CargaDadosMesPrecoMedioCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.CargaDadosMesPrecoMedioCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::resId1" displayMode="simple"/>
+          </af:panelHeader>
+          <af:table value="#{bindings.CargaDadosMesPrecoMedio1.collectionModel}" var="row"
+                    rows="#{bindings.CargaDadosMesPrecoMedio1.rangeSize}"
+                    emptyText="#{bindings.CargaDadosMesPrecoMedio1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.CargaDadosMesPrecoMedio1.rangeSize}" rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.CargaDadosMesPrecoMedio1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CargaDadosMesPrecoMedio1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="resId1">
+            <af:column sortProperty="#{bindings.CargaDadosMesPrecoMedio1.hints.ItemIditem.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosMesPrecoMedio1.hints.ItemIditem.label}" id="resId1c1">
+              <af:selectOneChoice value="#{row.bindings.ItemIditem.inputValue}" label="#{row.bindings.ItemIditem.label}"
+                                  required="#{bindings.CargaDadosMesPrecoMedio1.hints.ItemIditem.mandatory}"
+                                  shortDesc="#{bindings.CargaDadosMesPrecoMedio1.hints.ItemIditem.tooltip}"
+                                  readOnly="true" id="soc2">
+                <f:selectItems value="#{row.bindings.ItemIditem.items}" id="si2"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.CargaDadosMesPrecoMedio1.hints.Mes.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosMesPrecoMedio1.hints.Mes.label}" id="resId1c2">
+              <af:selectOneChoice value="#{row.bindings.Mes.inputValue}" label="#{row.bindings.Mes.label}"
+                                  required="#{bindings.CargaDadosMesPrecoMedio1.hints.Mes.mandatory}"
+                                  shortDesc="#{bindings.CargaDadosMesPrecoMedio1.hints.Mes.tooltip}" readOnly="true"
+                                  id="soc3">
+                <f:selectItems value="#{row.bindings.Mes.items}" id="si3"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column sortProperty="#{bindings.CargaDadosMesPrecoMedio1.hints.Precomedio.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosMesPrecoMedio1.hints.Precomedio.label}" id="resId1c3">
+              <af:outputText value="#{row.Precomedio}"
+                             shortDesc="#{bindings.CargaDadosMesPrecoMedio1.hints.Precomedio.tooltip}" id="ot4"/>
+            </af:column>
+          </af:table>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top"/>
+  </af:panelStretchLayout>
 </jsp:root>

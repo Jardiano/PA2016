@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CargaDadosMesPrecoMedio"
+  Version="11.1.2.64.36"
+  OrderBy='"MES"'
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="IdItem"
+    Kind="viewcriteria"
+    Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.IdItem_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="CalendarioMes1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.CalendarioMes"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ItemView1"
+    ViewObjectName="br.com.una.pa.model.view.ItemView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Mes"
+    ListVOName="CalendarioMes1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Mes"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdMes"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescMes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ItemIditem"
+    ListVOName="ItemView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ItemIditem"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdItem"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NmItem"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[select  item_idItem,
+        extract ( month from dt_realizada) as Mes,
+        round(avg(preco_medio),2) as PrecoMedio
+from carga_dados
+group by item_idItem, extract ( month from dt_realizada)]]></SQLQuery>
+  <ViewAttribute
+    Name="ItemIditem"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ITEM_IDITEM"
+    Expression="ITEM_IDITEM"
+    SQLType="NUMERIC"
+    LOVName="LOV_ItemIditem">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.ItemIditem_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Mes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="MES"
+    Expression="MES"
+    SQLType="NUMERIC"
+    LOVName="LOV_Mes">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.Mes_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Precomedio"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="PRECOMEDIO"
+    Expression="PRECOMEDIO"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.Precomedio_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CargaDadosMesPrecoMedioCriteria"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CargaDadosMesPrecoMedioCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CargaDadosMesPrecoMedioCriteria_CargaDadosMesPrecoMedioCriteria_row_0_ItemIditem"
+        ViewAttribute="ItemIditem"
+        Operator="="
+        Conjunction="AND"
+        Value=":IdItem"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

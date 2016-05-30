@@ -14,6 +14,27 @@
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <ViewAccessor
+    Name="TipoclasseView1"
+    ViewObjectName="br.com.una.pa.model.view.TipoclasseView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ClasseIdtipo"
+    ListVOName="TipoclasseView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ClasseIdtipo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdTipoClasse"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescClasse"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Item"
     Entity="br.com.una.pa.model.entity.Item"/>
@@ -44,7 +65,15 @@
     PrecisionRule="true"
     EntityAttrName="ClasseIdtipo"
     EntityUsage="Item"
-    AliasName="CLASSE_IDTIPO"/>
+    AliasName="CLASSE_IDTIPO"
+    LOVName="LOV_ClasseIdtipo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="CargaDadosView"
     ViewLink="br.com.una.pa.model.view.FkItemIditemLink"
