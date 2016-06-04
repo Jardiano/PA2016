@@ -4,45 +4,52 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView1Iterator"
+    <iterator Binds="ItemView3" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView3Iterator"
               ChangeEventPolicy="ppr"/>
-    <iterator Binds="CargaDadosMesPrecoMedio1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="CargaDadosMesPrecoMedio1Iterator"/>
-    <searchRegion Criteria="CargaDadosMesPrecoMedioCriteria"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="CargaDadosMesPrecoMedio1Iterator" id="CargaDadosMesPrecoMedioCriteriaQuery"/>
+    <iterator Binds="CargaDadosMesPrecoMedio2" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="CargaDadosMesPrecoMedio2Iterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
-    <attributeValues IterBinding="ItemView1Iterator" id="IdItem">
+    <tree IterBinding="ItemView3Iterator" id="ItemView3">
+      <nodeDefinition DefName="br.com.una.pa.model.view.ItemView" Name="ItemView30">
+        <AttrNames>
+          <Item Value="IdItem"/>
+          <Item Value="CodItem"/>
+          <Item Value="NmItem"/>
+          <Item Value="ClasseIdtipo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <list IterBinding="CargaDadosMesPrecoMedio2Iterator" StaticList="false" Uses="LOV_ItemIditem" id="ItemIditem"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CargaDadosMesPrecoMedio2Iterator" StaticList="false" Uses="LOV_Mes" id="Mes"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Precomedio">
       <AttrNames>
-        <Item Value="IdItem"/>
+        <Item Value="Precomedio"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ItemView1Iterator" id="CodItem">
-      <AttrNames>
-        <Item Value="CodItem"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ItemView1Iterator" id="NmItem">
+    <graph IterBinding="CargaDadosMesPrecoMedio2Iterator" id="CargaDadosMesPrecoMedio2"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Precomedio"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Descmes"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <attributeValues IterBinding="ItemView3Iterator" id="NmItem">
       <AttrNames>
         <Item Value="NmItem"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="ItemView1Iterator" StaticList="false" Uses="LOV_ClasseIdtipo" id="ClasseIdtipo"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <action IterBinding="ItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
-    <action IterBinding="ItemView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
-    <action IterBinding="ItemView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
-    <action IterBinding="ItemView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
-    <tree IterBinding="CargaDadosMesPrecoMedio1Iterator" id="CargaDadosMesPrecoMedio1">
-      <nodeDefinition DefName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio"
-                      Name="CargaDadosMesPrecoMedio10">
-        <AttrNames>
-          <Item Value="ItemIditem"/>
-          <Item Value="Mes"/>
-          <Item Value="Precomedio"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
   </bindings>
 </pageDefinition>

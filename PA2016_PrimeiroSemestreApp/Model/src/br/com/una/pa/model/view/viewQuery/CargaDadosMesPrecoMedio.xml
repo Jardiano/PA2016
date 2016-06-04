@@ -22,7 +22,7 @@
   <Variable
     Name="IdItem"
     Kind="viewcriteria"
-    Type="java.math.BigInteger">
+    Type="java.lang.Integer">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -74,7 +74,8 @@
   </ListBinding>
   <SQLQuery><![CDATA[select  item_idItem,
         extract ( month from dt_realizada) as Mes,
-        round(avg(preco_medio),2) as PrecoMedio
+        round(avg(preco_medio),2) as PrecoMedio,
+         To_char(to_date( extract ( month from dt_realizada),'MM'),'Month','NLS_DATE_LANGUAGE= ''BRAZILIAN PORTUGUESE''') as DescMes
 from carga_dados
 group by item_idItem, extract ( month from dt_realizada)]]></SQLQuery>
   <ViewAttribute
@@ -135,6 +136,21 @@ group by item_idItem, extract ( month from dt_realizada)]]></SQLQuery>
           ResId="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.Precomedio_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Descmes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="36"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCMES"
+    Expression="DESCMES"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="36"/>
+    </DesignTime>
   </ViewAttribute>
   <ViewCriteria
     Name="CargaDadosMesPrecoMedioCriteria"

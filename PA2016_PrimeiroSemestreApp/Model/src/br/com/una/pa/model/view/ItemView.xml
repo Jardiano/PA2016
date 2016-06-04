@@ -18,6 +18,18 @@
     Name="TipoclasseView1"
     ViewObjectName="br.com.una.pa.model.view.TipoclasseView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CargaDadosMesPrecoMedio1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio">
+    <ViewCriteriaUsage
+      Name="CargaDadosMesPrecoMedioCriteria"
+      FullName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.CargaDadosMesPrecoMedioCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="IdItem">
+        <TransientExpression><![CDATA[IdItem]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_ClasseIdtipo"
     ListVOName="TipoclasseView1"
@@ -77,6 +89,11 @@
   <ViewLinkAccessor
     Name="CargaDadosView"
     ViewLink="br.com.una.pa.model.view.FkItemIditemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CargaDadosMesPrecoMedio"
+    ViewLink="br.com.una.pa.model.view.FkItemIdItemPrecoMedioLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>
