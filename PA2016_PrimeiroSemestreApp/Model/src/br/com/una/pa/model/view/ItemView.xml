@@ -30,6 +30,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="CargaDadosSemanaPrecoMedio1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ClasseIdtipo"
     ListVOName="TipoclasseView1"
@@ -94,6 +98,11 @@
   <ViewLinkAccessor
     Name="CargaDadosMesPrecoMedio"
     ViewLink="br.com.una.pa.model.view.FkItemIdItemPrecoMedioLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CargaDadosSemanaPrecoMedio"
+    ViewLink="br.com.una.pa.model.view.FKItemIdItemSemPMedioLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

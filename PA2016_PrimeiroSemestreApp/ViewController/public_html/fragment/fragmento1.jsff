@@ -4,57 +4,144 @@
   <af:panelStretchLayout id="psl1">
     <f:facet name="center">
       <af:panelGroupLayout layout="scroll" id="pgl1">
-        <af:panelHeader text="ItemView3" id="ph1">
-          <af:table id="md1" rows="#{bindings.ItemView3.rangeSize}" fetchSize="#{bindings.ItemView3.rangeSize}"
-                    emptyText="#{bindings.ItemView3.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
-                    value="#{bindings.ItemView3.collectionModel}" rowBandingInterval="0"
-                    selectedRowKeys="#{bindings.ItemView3.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.ItemView3.collectionModel.makeCurrent}" rowSelection="single">
-             
-            <af:column headerText="#{bindings.ItemView3.hints.CodItem.label}"
-                       sortProperty="#{bindings.ItemView3.hints.CodItem.name}" sortable="false" id="c2">
-              <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView3.hints.CodItem.tooltip}" id="ot2"/>
+        <af:panelFormLayout id="pfl2">
+          <af:inputText value="#{bindings.data.inputValue}" label="#{bindings.data.hints.label}"
+                        required="#{bindings.data.hints.mandatory}" columns="#{bindings.data.hints.displayWidth}"
+                        maximumLength="#{bindings.data.hints.precision}" shortDesc="#{bindings.data.hints.tooltip}"
+                        id="it1">
+            <f:validator binding="#{bindings.data.validator}"/>
+          </af:inputText>
+          <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}" text="ExecuteWithParams"
+                            disabled="#{!bindings.ExecuteWithParams.enabled}" id="cb5"/>
+          <af:table value="#{bindings.CargaDadosSemanaPrecoMedio31.collectionModel}" var="row"
+                    rows="#{bindings.CargaDadosSemanaPrecoMedio31.rangeSize}"
+                    emptyText="#{bindings.CargaDadosSemanaPrecoMedio31.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.CargaDadosSemanaPrecoMedio31.rangeSize}" rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.CargaDadosSemanaPrecoMedio31.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CargaDadosSemanaPrecoMedio31.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t2" partialTriggers="::cb5">
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio31.hints.ItemIditem.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio31.hints.ItemIditem.label}" id="c8">
+              <af:outputText value="#{row.ItemIditem}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio31.hints.ItemIditem.tooltip}" id="ot8"/>
             </af:column>
-             
-            <af:column headerText="#{bindings.ItemView3.hints.NmItem.label}"
-                       sortProperty="#{bindings.ItemView3.hints.NmItem.name}" sortable="false" id="c3">
-              <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView3.hints.NmItem.tooltip}" id="ot3"/>
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio31.hints.DtRealizada.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio31.hints.DtRealizada.label}" id="c9">
+              <af:outputText value="#{row.DtRealizada}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio31.hints.DtRealizada.tooltip}" id="ot9">
+                <af:convertDateTime pattern="#{bindings.CargaDadosSemanaPrecoMedio31.hints.DtRealizada.format}"/>
+              </af:outputText>
             </af:column>
-             
-            <af:column headerText="#{bindings.ItemView3.hints.ClasseIdtipo.label}"
-                       sortProperty="#{bindings.ItemView3.hints.ClasseIdtipo.name}" sortable="false" id="c4">
-              <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}"
-                                  label="#{row.bindings.ClasseIdtipo.label}"
-                                  required="#{bindings.ItemView3.hints.ClasseIdtipo.mandatory}"
-                                  shortDesc="#{bindings.ItemView3.hints.ClasseIdtipo.tooltip}" readOnly="true"
-                                  id="soc1">
-                <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si1"/>
-              </af:selectOneChoice>
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio31.hints.Semana.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio31.hints.Semana.label}" id="c10">
+              <af:outputText value="#{row.Semana}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio31.hints.Semana.tooltip}" id="ot10"/>
             </af:column>
           </af:table>
+          <af:table value="#{bindings.CargaDadosSemanaPrecoMedio3.collectionModel}" var="row"
+                    rows="#{bindings.CargaDadosSemanaPrecoMedio3.rangeSize}"
+                    emptyText="#{bindings.CargaDadosSemanaPrecoMedio3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.CargaDadosSemanaPrecoMedio3.rangeSize}" rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.CargaDadosSemanaPrecoMedio3.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CargaDadosSemanaPrecoMedio3.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" partialTriggers="::cb5">
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio3.hints.ItemIditem.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio3.hints.ItemIditem.label}" id="c1">
+              <af:outputText value="#{row.ItemIditem}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio3.hints.ItemIditem.tooltip}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Precomedio.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Precomedio.label}" id="c5">
+              <af:outputText value="#{row.Precomedio}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Precomedio.tooltip}" id="ot5">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Precomedio.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio3.hints.DtRealizada.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio3.hints.DtRealizada.label}" id="c6">
+              <af:outputText value="#{row.DtRealizada}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio3.hints.DtRealizada.tooltip}" id="ot6">
+                <af:convertDateTime pattern="#{bindings.CargaDadosSemanaPrecoMedio3.hints.DtRealizada.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Semana.name}" sortable="true"
+                       headerText="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Semana.label}" id="c7">
+              <af:outputText value="#{row.Semana}"
+                             shortDesc="#{bindings.CargaDadosSemanaPrecoMedio3.hints.Semana.tooltip}" id="ot7"/>
+            </af:column>
+          </af:table>
+        </af:panelFormLayout>
+        <af:panelHeader text="ItemView3" id="ph1">
+          <af:panelGroupLayout id="pgl5" layout="horizontal">
+            <af:table id="md1" rows="#{bindings.ItemView3.rangeSize}" fetchSize="#{bindings.ItemView3.rangeSize}"
+                      emptyText="#{bindings.ItemView3.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                      value="#{bindings.ItemView3.collectionModel}" rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.ItemView3.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.ItemView3.collectionModel.makeCurrent}" rowSelection="single"
+                      styleClass="AFStretchWidth">
+              <af:column headerText="#{bindings.ItemView3.hints.CodItem.label}"
+                         sortProperty="#{bindings.ItemView3.hints.CodItem.name}" sortable="false" id="c2">
+                <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView3.hints.CodItem.tooltip}" id="ot2"/>
+              </af:column>
+              <af:column headerText="#{bindings.ItemView3.hints.NmItem.label}"
+                         sortProperty="#{bindings.ItemView3.hints.NmItem.name}" sortable="false" id="c3">
+                <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView3.hints.NmItem.tooltip}" id="ot3"/>
+              </af:column>
+              <af:column headerText="#{bindings.ItemView3.hints.ClasseIdtipo.label}"
+                         sortProperty="#{bindings.ItemView3.hints.ClasseIdtipo.name}" sortable="false" id="c4">
+                <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}"
+                                    label="#{row.bindings.ClasseIdtipo.label}"
+                                    required="#{bindings.ItemView3.hints.ClasseIdtipo.mandatory}"
+                                    shortDesc="#{bindings.ItemView3.hints.ClasseIdtipo.tooltip}" readOnly="true"
+                                    id="soc1">
+                  <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si1"/>
+                </af:selectOneChoice>
+              </af:column>
+            </af:table>
+            <dvt:lineGraph id="graph1" value="#{bindings.CargaDadosMesPrecoMedio2.graphModel}" subType="LINE_VERT_ABS"
+                           inlineStyle="width:300%;">
+              <dvt:background>
+                <dvt:specialEffects/>
+              </dvt:background>
+              <dvt:graphPlotArea/>
+              <dvt:seriesSet markerDisplayed="true">
+                <dvt:series/>
+              </dvt:seriesSet>
+              <dvt:o1Axis/>
+              <dvt:y1Axis/>
+              <dvt:legendArea automaticPlacement="AP_NEVER"/>
+              <dvt:graphTitle/>
+            </dvt:lineGraph>
+            <f:facet name="separator">
+              <af:spacer width="10" height="10" id="s2"/>
+            </f:facet>
+          </af:panelGroupLayout>
         </af:panelHeader>
-        <af:panelHeader text="#{bindings.NmItem.inputValue}" id="ph3" styleClass="AFStretchWidth">
+        <af:panelHeader text="#{bindings.NmItem.inputValue}" id="ph3">
           <f:facet name="context"/>
           <f:facet name="menuBar"/>
           <f:facet name="toolbar"/>
           <f:facet name="legend"/>
           <f:facet name="info"/>
-          <dvt:lineGraph id="graph1" value="#{bindings.CargaDadosMesPrecoMedio2.graphModel}" subType="LINE_VERT_ABS"
-                         inlineStyle="width:100%; ">
+          <dvt:lineGraph id="graph2" value="#{bindings.CargaDadosView3.graphModel}" subType="LINE_VERT_ABS"
+                         styleClass="AFStretchWidth" contentDelivery="lazy" inlineStyle="width:1200px;"
+                         animationOnDataChange="auto">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
             <dvt:graphPlotArea/>
-            <dvt:seriesSet>
+            <dvt:seriesSet barShape="CYLINDER">
               <dvt:series/>
             </dvt:seriesSet>
             <dvt:o1Axis/>
             <dvt:y1Axis/>
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
-            <dvt:graphTitle/>
+            <dvt:o1MajorTick id="o1MajorTick1" lineStyle="LS_DASH" tickStyle="GS_GRID"/>
+            <dvt:o1TickLabel textRotation="270"/>
           </dvt:lineGraph>
         </af:panelHeader>
-        <af:panelHeader text="CargaDadosMesPrecoMedio2" id="ph2">
+        <af:panelHeader text="CargaDadosMesPrecoMedio2" id="ph2" visible="false">
           <af:panelFormLayout partialTriggers="md1" id="pfl1">
             <af:selectOneChoice value="#{bindings.ItemIditem.inputValue}" label="#{bindings.ItemIditem.label}"
                                 required="#{bindings.ItemIditem.hints.mandatory}"

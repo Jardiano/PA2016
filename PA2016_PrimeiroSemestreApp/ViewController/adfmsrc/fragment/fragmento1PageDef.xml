@@ -3,11 +3,17 @@
                 Package="fragment">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
-    <iterator Binds="ItemView3" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView3Iterator"
+    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView3Iterator"
               ChangeEventPolicy="ppr"/>
-    <iterator Binds="CargaDadosMesPrecoMedio2" RangeSize="-1" DataControl="AppModuleDataControl"
+    <iterator Binds="CargaDadosMesPrecoMedio3" RangeSize="25" DataControl="AppModuleDataControl"
               id="CargaDadosMesPrecoMedio2Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="CargaDadosView3" RangeSize="-1" DataControl="AppModuleDataControl" id="CargaDadosView3Iterator"/>
+    <iterator Binds="CargaDadosSemanaPrecoMedio3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="CargaDadosSemanaPrecoMedio3Iterator"/>
+    <variableIterator id="variables">
+      <variableUsage DataControl="AppModuleDataControl" Binds="CargaDadosSemanaPrecoMedio3.variablesMap.data"
+                     Name="ExecuteWithParams_data" IsQueriable="false"/>
+    </variableIterator>
   </executables>
   <bindings>
     <tree IterBinding="ItemView3Iterator" id="ItemView3">
@@ -51,5 +57,48 @@
         <Item Value="NmItem"/>
       </AttrNames>
     </attributeValues>
+    <graph IterBinding="CargaDadosView3Iterator" id="CargaDadosView3" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="PrecoMedio"/>
+          </data>
+        </series>
+        <groups>
+          <item value="DtRealizada"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <action IterBinding="CargaDadosSemanaPrecoMedio3Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="data" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_data}"/>
+    </action>
+    <attributeValues IterBinding="variables" id="data">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_data"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CargaDadosSemanaPrecoMedio3Iterator" id="CargaDadosSemanaPrecoMedio3">
+      <nodeDefinition DefName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"
+                      Name="CargaDadosSemanaPrecoMedio30">
+        <AttrNames>
+          <Item Value="ItemIditem"/>
+          <Item Value="Precomedio"/>
+          <Item Value="DtRealizada"/>
+          <Item Value="Semana"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CargaDadosSemanaPrecoMedio3Iterator" id="CargaDadosSemanaPrecoMedio31">
+      <nodeDefinition DefName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"
+                      Name="CargaDadosSemanaPrecoMedio310">
+        <AttrNames>
+          <Item Value="ItemIditem"/>
+          <Item Value="DtRealizada"/>
+          <Item Value="Semana"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

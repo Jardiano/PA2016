@@ -46,11 +46,14 @@
     Name="CargaDadosMesPrecoMedio1"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio"/>
   <ViewUsage
-    Name="ItemView3"
-    ViewObjectName="br.com.una.pa.model.view.ItemView"/>
-  <ViewUsage
-    Name="CargaDadosMesPrecoMedio2"
+    Name="CargaDadosMesPrecoMedio3"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio"/>
+  <ViewUsage
+    Name="CargaDadosSemanaPrecoMedio1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"/>
+  <ViewUsage
+    Name="CargaDadosSemanaPrecoMedio3"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -76,9 +79,15 @@
     DstViewUsageName="br.com.una.pa.model.AppModule.ItemView2"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="FkItemIdItemPrecoMedioLink"
+    Name="FkItemIdItemPrecoMedioLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkItemIdItemPrecoMedioLink"
-    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView3"
-    DstViewUsageName="br.com.una.pa.model.AppModule.CargaDadosMesPrecoMedio2"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.CargaDadosMesPrecoMedio3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKItemIdItemSemPMedioLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FKItemIdItemSemPMedioLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.CargaDadosSemanaPrecoMedio1"
     Reversed="false"/>
 </AppModule>
