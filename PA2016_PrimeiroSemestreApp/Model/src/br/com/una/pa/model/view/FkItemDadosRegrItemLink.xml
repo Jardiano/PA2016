@@ -3,12 +3,12 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="FkItemIdItemPrecoMedioLink"
+  Name="FkItemDadosRegrItemLink"
   Version="11.1.2.64.36">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="br.com.una.pa.model.view.FkItemIdItemPrecoMedioLink_LABEL"/>
+        ResId="br.com.una.pa.model.view.FkItemDadosRegrItemLink_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
@@ -26,15 +26,15 @@
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="CargaDadosMesPrecoMedio"
+    Name="DadosRegressaoItemView"
     Cardinality="-1"
-    Owner="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio">
+    Owner="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView">
     <DesignTime>
-      <Attr Name="_finderName" Value="CargaDadosMesPrecoMedio"/>
+      <Attr Name="_finderName" Value="DadosRegressaoItemView"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio.ItemIditem"/>
+      <Item Value="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView.IdItem"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

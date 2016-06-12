@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="visualizaDadosItemPageDef"
+                Package="fragment">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="DadosRegressaoItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="DadosRegressaoItemView1Iterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DadosRegressaoItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DadosRegressaoItemView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DadosRegressaoItemView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DadosRegressaoItemView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="IdItem">
+      <AttrNames>
+        <Item Value="IdItem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="NmItem">
+      <AttrNames>
+        <Item Value="NmItem"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DadosRegressaoItemView1Iterator" StaticList="false" Uses="LOV_Mes" id="Mes"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="Ano">
+      <AttrNames>
+        <Item Value="Ano"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="TotalFatMes">
+      <AttrNames>
+        <Item Value="TotalFatMes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="TotalCliMes">
+      <AttrNames>
+        <Item Value="TotalCliMes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="RegressaoValorFatMes">
+      <AttrNames>
+        <Item Value="RegressaoValorFatMes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoItemView1Iterator" id="RegressaoValorCliMes">
+      <AttrNames>
+        <Item Value="RegressaoValorCliMes"/>
+      </AttrNames>
+    </attributeValues>
+    <graph IterBinding="DadosRegressaoItemView1Iterator" id="DadosRegressaoItemView1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="TotalCliMes" label="Total Clientes"/>
+            <item value="TotalFatMes" label="Total Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Mes"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="DadosRegressaoItemView1Iterator" id="DadosRegressaoItemView11"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="RegressaoValorCliMes" label="Regressão Cliente"/>
+            <item value="RegressaoValorFatMes" label="Regressão Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Mes"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <tree IterBinding="ItemView1Iterator" id="ItemView1">
+      <nodeDefinition DefName="br.com.una.pa.model.view.ItemView" Name="ItemView10">
+        <AttrNames>
+          <Item Value="CodItem"/>
+          <Item Value="NmItem"/>
+          <Item Value="ClasseIdtipo"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

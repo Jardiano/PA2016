@@ -21,6 +21,11 @@
        DadosFuturosGrupo.ANOFUTURO, 
        DadosFuturosGrupo.CENARIOTIMISTAFATURAMENTO, 
        DadosFuturosGrupo.CENARIOPESSIMISTAFATURAMENTO, 
+       DadosFuturosGrupo.CENARIOPROVAVELFAT, 
+       DadosFuturosGrupo.CENARIOPROVAVELCLI, 
+       DadosFuturosGrupo.TIPO_PROCESSAMENTO, 
+       DadosFuturosGrupo.DATAPROCESSAMENTO, 
+       DadosFuturosGrupo.ITEM_REPROCESSADO, 
        DadosFuturosGrupo.ROWID"
   FromList="DADOS_FUTUROS_GRUPO DadosFuturosGrupo"
   BindingStyle="OracleName"
@@ -126,6 +131,36 @@
     EntityAttrName="Cenariopessimistafaturamento"
     EntityUsage="DadosFuturosGrupo"
     AliasName="CENARIOPESSIMISTAFATURAMENTO"/>
+  <ViewAttribute
+    Name="Cenarioprovavelfat"
+    PrecisionRule="true"
+    EntityAttrName="Cenarioprovavelfat"
+    EntityUsage="DadosFuturosGrupo"
+    AliasName="CENARIOPROVAVELFAT"/>
+  <ViewAttribute
+    Name="Cenarioprovavelcli"
+    PrecisionRule="true"
+    EntityAttrName="Cenarioprovavelcli"
+    EntityUsage="DadosFuturosGrupo"
+    AliasName="CENARIOPROVAVELCLI"/>
+  <ViewAttribute
+    Name="TipoProcessamento"
+    PrecisionRule="true"
+    EntityAttrName="TipoProcessamento"
+    EntityUsage="DadosFuturosGrupo"
+    AliasName="TIPO_PROCESSAMENTO"/>
+  <ViewAttribute
+    Name="Dataprocessamento"
+    PrecisionRule="true"
+    EntityAttrName="Dataprocessamento"
+    EntityUsage="DadosFuturosGrupo"
+    AliasName="DATAPROCESSAMENTO"/>
+  <ViewAttribute
+    Name="ItemReprocessado"
+    PrecisionRule="true"
+    EntityAttrName="ItemReprocessado"
+    EntityUsage="DadosFuturosGrupo"
+    AliasName="ITEM_REPROCESSADO"/>
   <ViewAttribute
     Name="Rowid"
     IsUpdateable="false"

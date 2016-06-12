@@ -137,6 +137,50 @@
     ColumnType="FLOAT"
     TableName="DADOS_FUTUROS_GRUPO"/>
   <Attribute
+    Name="Cenarioprovavelfat"
+    Precision="126"
+    ColumnName="CENARIOPROVAVELFAT"
+    SQLType="FLOAT"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    TableName="DADOS_FUTUROS_GRUPO"/>
+  <Attribute
+    Name="Cenarioprovavelcli"
+    Precision="126"
+    ColumnName="CENARIOPROVAVELCLI"
+    SQLType="FLOAT"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    TableName="DADOS_FUTUROS_GRUPO"/>
+  <Attribute
+    Name="TipoProcessamento"
+    ColumnName="TIPO_PROCESSAMENTO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="DADOS_FUTUROS_GRUPO"/>
+  <Attribute
+    Name="Dataprocessamento"
+    ColumnName="DATAPROCESSAMENTO"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="DADOS_FUTUROS_GRUPO"/>
+  <Attribute
+    Name="ItemReprocessado"
+    Precision="1"
+    ColumnName="ITEM_REPROCESSADO"
+    SQLType="CHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="DADOS_FUTUROS_GRUPO"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
     Name="Rowid"
     IsUpdateable="false"
     ColumnName="ROWID"

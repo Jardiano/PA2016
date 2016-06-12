@@ -12,11 +12,13 @@
     <page path="/page/paginaPrincipal.jspx" usageId="br_com_una_pa_view_paginaPrincipalPageDef"/>
     <page path="/fragment/fragmento1.jsff" usageId="br_com_una_pa_view_fragmento1PageDef"/>
     <page path="/page/pagina.jspx" usageId="br_com_una_pa_view_paginaPageDef"/>
+    <page path="/fragment/visualizaDadosItem.jsff" usageId="br_com_una_pa_view_visualizaDadosItemPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="br_com_una_pa_view_paginaPrincipalPageDef" path="page.paginaPrincipalPageDef"/>
     <page id="br_com_una_pa_view_fragmento1PageDef" path="fragment.fragmento1PageDef"/>
     <page id="br_com_una_pa_view_paginaPageDef" path="page.paginaPageDef"/>
+    <page id="br_com_una_pa_view_visualizaDadosItemPageDef" path="fragment.visualizaDadosItemPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="br.com.una.pa.model"

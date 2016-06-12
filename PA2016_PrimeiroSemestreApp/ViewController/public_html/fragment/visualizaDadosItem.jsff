@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelGroupLayout layout="scroll" id="pgl1">
+    <af:panelHeader text="ItemView1" id="ph1">
+      <af:table id="md1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
+                emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
+                selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
+                styleClass="AFStretchWidth">
+         
+         
+         
+        <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
+                   headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c2">
+          <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot2"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="false"
+                   headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c1">
+          <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot1"/>
+        </af:column>
+        <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="false"
+                   headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c3">
+          <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}" label="#{row.bindings.ClasseIdtipo.label}"
+                              required="#{bindings.ItemView1.hints.ClasseIdtipo.mandatory}"
+                              shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" readOnly="true" id="soc2">
+            <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si2"/>
+          </af:selectOneChoice>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:panelGridLayout id="pgl3">
+      <af:gridRow marginTop="5px" height="auto" id="gr1">
+        <af:gridCell id="gc2">
+          <dvt:lineGraph id="graph2" value="#{bindings.DadosRegressaoItemView11.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" id="gc1">
+          <dvt:lineGraph id="graph1" value="#{bindings.DadosRegressaoItemView1.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
+    <af:panelHeader text="DadosRegressaoItemView1" id="ph2" visible="false">
+      <af:panelFormLayout partialTriggers="md1" id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.IdItem.hints.label}" id="plam1">
+          <af:outputText value="#{bindings.IdItem.inputValue}" shortDesc="#{bindings.IdItem.hints.tooltip}" id="ot5"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.NmItem.hints.label}" id="plam2">
+          <af:outputText value="#{bindings.NmItem.inputValue}" shortDesc="#{bindings.NmItem.hints.tooltip}" id="ot6"/>
+        </af:panelLabelAndMessage>
+        <af:selectOneChoice value="#{bindings.Mes.inputValue}" label="#{bindings.Mes.label}"
+                            required="#{bindings.Mes.hints.mandatory}" shortDesc="#{bindings.Mes.hints.tooltip}"
+                            readOnly="true" id="soc1">
+          <f:selectItems value="#{bindings.Mes.items}" id="si1"/>
+        </af:selectOneChoice>
+        <af:panelLabelAndMessage label="#{bindings.Ano.hints.label}" id="plam3">
+          <af:outputText value="#{bindings.Ano.inputValue}" shortDesc="#{bindings.Ano.hints.tooltip}" id="ot7"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.TotalFatMes.hints.label}" id="plam4">
+          <af:outputText value="#{bindings.TotalFatMes.inputValue}" shortDesc="#{bindings.TotalFatMes.hints.tooltip}"
+                         id="ot8"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.TotalCliMes.hints.label}" id="plam5">
+          <af:outputText value="#{bindings.TotalCliMes.inputValue}" shortDesc="#{bindings.TotalCliMes.hints.tooltip}"
+                         id="ot9"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.RegressaoValorFatMes.hints.label}" id="plam6">
+          <af:outputText value="#{bindings.RegressaoValorFatMes.inputValue}"
+                         shortDesc="#{bindings.RegressaoValorFatMes.hints.tooltip}" id="ot10"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.RegressaoValorCliMes.hints.label}" id="plam7">
+          <af:outputText value="#{bindings.RegressaoValorCliMes.inputValue}"
+                         shortDesc="#{bindings.RegressaoValorCliMes.hints.tooltip}" id="ot11"/>
+        </af:panelLabelAndMessage>
+        <f:facet name="footer">
+          <af:panelGroupLayout layout="horizontal" id="pgl2">
+            <f:facet name="separator">
+              <af:spacer width="10" height="1" id="s1"/>
+            </f:facet>
+            <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                              disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"/>
+            <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                              disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb2"/>
+            <af:commandButton actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                              partialSubmit="true" id="cb3"/>
+            <af:commandButton actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                              partialSubmit="true" id="cb4"/>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelFormLayout>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

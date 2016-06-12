@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="CalendarioMes"
+  Name="MesStaticView"
   Version="11.1.2.64.36"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -15,7 +15,7 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="br.com.una.pa.model.view.viewStatic.CalendarioMes_LABEL"/>
+        ResId="br.com.una.pa.model.view.viewStatic.MesStaticView_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewAttribute
@@ -24,8 +24,7 @@
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    SQLType="NUMERIC"/>
+    ColumnType="$none$"/>
   <ViewAttribute
     Name="DescMes"
     IsUpdateable="false"
@@ -33,8 +32,7 @@
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
-    ColumnType="$none$"
-    SQLType="VARCHAR"/>
+    ColumnType="$none$"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="IdMes"/>
   </AttrArray>

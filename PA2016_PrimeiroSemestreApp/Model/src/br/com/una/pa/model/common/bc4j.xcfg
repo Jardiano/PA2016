@@ -1,14 +1,14 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="br.com.una.pa.model.AppModule">
-      <AppModuleConfig name="AppModuleLocal" DeployPlatform="LOCAL" jbo.project="br.com.una.pa.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="br.com.una.pa.model.AppModule">
-         <Database jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic"/>
+      <AppModuleConfig name="AppModuleLocal" jbo.project="br.com.una.pa.model.Model" ApplicationName="br.com.una.pa.model.AppModule" DeployPlatform="LOCAL">
+         <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="br.com.una.pa.model.AppModule"/>
          <Custom JDBCDataSource="java:comp/env/jdbc/PA2016DS"/>
       </AppModuleConfig>
-      <AppModuleConfig name="AppModuleShared" DeployPlatform="LOCAL" jbo.project="br.com.una.pa.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="br.com.una.pa.model.AppModule">
-         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
-         <Database jbo.TypeMapEntries="OracleApps" jbo.locking.mode="optimistic"/>
+      <AppModuleConfig name="AppModuleShared" jbo.project="br.com.una.pa.model.Model" ApplicationName="br.com.una.pa.model.AppModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="br.com.una.pa.model.AppModule"/>
          <Custom JDBCDataSource="java:comp/env/jdbc/PA2016DS"/>
       </AppModuleConfig>

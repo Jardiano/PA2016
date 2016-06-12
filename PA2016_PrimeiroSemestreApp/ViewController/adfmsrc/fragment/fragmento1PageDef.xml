@@ -3,21 +3,14 @@
                 Package="fragment">
   <parameters/>
   <executables>
-    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView3Iterator"
+    <iterator Binds="ItemView1" RangeSize="25" DataControl="AppModuleDataControl" id="ItemView1Iterator"
               ChangeEventPolicy="ppr"/>
-    <iterator Binds="CargaDadosMesPrecoMedio3" RangeSize="25" DataControl="AppModuleDataControl"
-              id="CargaDadosMesPrecoMedio2Iterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="CargaDadosView3" RangeSize="-1" DataControl="AppModuleDataControl" id="CargaDadosView3Iterator"/>
-    <iterator Binds="CargaDadosSemanaPrecoMedio3" RangeSize="25" DataControl="AppModuleDataControl"
-              id="CargaDadosSemanaPrecoMedio3Iterator"/>
-    <variableIterator id="variables">
-      <variableUsage DataControl="AppModuleDataControl" Binds="CargaDadosSemanaPrecoMedio3.variablesMap.data"
-                     Name="ExecuteWithParams_data" IsQueriable="false"/>
-    </variableIterator>
+    <iterator Binds="CargaDadosView3" RangeSize="-1" DataControl="AppModuleDataControl" id="CargaDadosView3Iterator"
+              ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
-    <tree IterBinding="ItemView3Iterator" id="ItemView3">
-      <nodeDefinition DefName="br.com.una.pa.model.view.ItemView" Name="ItemView30">
+    <tree IterBinding="ItemView1Iterator" id="ItemView1">
+      <nodeDefinition DefName="br.com.una.pa.model.view.ItemView" Name="ItemView10">
         <AttrNames>
           <Item Value="IdItem"/>
           <Item Value="CodItem"/>
@@ -26,43 +19,57 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
-    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
-    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
-    <action IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
-    <list IterBinding="CargaDadosMesPrecoMedio2Iterator" StaticList="false" Uses="LOV_ItemIditem" id="ItemIditem"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CargaDadosMesPrecoMedio2Iterator" StaticList="false" Uses="LOV_Mes" id="Mes"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="CargaDadosMesPrecoMedio2Iterator" id="Precomedio">
+    <action IterBinding="CargaDadosView3Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CargaDadosView3Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CargaDadosView3Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CargaDadosView3Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="IdCargaDados">
       <AttrNames>
-        <Item Value="Precomedio"/>
+        <Item Value="IdCargaDados"/>
       </AttrNames>
     </attributeValues>
-    <graph IterBinding="CargaDadosMesPrecoMedio2Iterator" id="CargaDadosMesPrecoMedio2"
-           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
-      <graphDataMap convert="false" leafOnly="true">
-        <series>
-          <data>
-            <item value="Precomedio"/>
-          </data>
-        </series>
-        <groups>
-          <item value="Descmes"/>
-        </groups>
-      </graphDataMap>
-    </graph>
-    <attributeValues IterBinding="ItemView3Iterator" id="NmItem">
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="Quantcliente">
       <AttrNames>
-        <Item Value="NmItem"/>
+        <Item Value="Quantcliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="Quantfaturamento">
+      <AttrNames>
+        <Item Value="Quantfaturamento"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="ItemIditem">
+      <AttrNames>
+        <Item Value="ItemIditem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="RespIdresp">
+      <AttrNames>
+        <Item Value="RespIdresp"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="AreaIdarea">
+      <AttrNames>
+        <Item Value="AreaIdarea"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="PesoMedio">
+      <AttrNames>
+        <Item Value="PesoMedio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CargaDadosView3Iterator" id="DtRealizada">
+      <AttrNames>
+        <Item Value="DtRealizada"/>
       </AttrNames>
     </attributeValues>
     <graph IterBinding="CargaDadosView3Iterator" id="CargaDadosView3" xmlns="http://xmlns.oracle.com/adfm/dvt"
-           type="LINE_VERT_ABS">
+           type="LINE_VERT_ABS_SPLIT2Y">
       <graphDataMap convert="false" leafOnly="true">
         <series>
           <data>
-            <item value="PrecoMedio"/>
+            <item value="Quantcliente"/>
+            <item value="Quantfaturamento"/>
           </data>
         </series>
         <groups>
@@ -70,35 +77,33 @@
         </groups>
       </graphDataMap>
     </graph>
-    <action IterBinding="CargaDadosSemanaPrecoMedio3Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
-            Action="executeWithParams">
-      <NamedData NDName="data" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_data}"/>
-    </action>
-    <attributeValues IterBinding="variables" id="data">
-      <AttrNames>
-        <Item Value="ExecuteWithParams_data"/>
-      </AttrNames>
-    </attributeValues>
-    <tree IterBinding="CargaDadosSemanaPrecoMedio3Iterator" id="CargaDadosSemanaPrecoMedio3">
-      <nodeDefinition DefName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"
-                      Name="CargaDadosSemanaPrecoMedio30">
-        <AttrNames>
-          <Item Value="ItemIditem"/>
-          <Item Value="Precomedio"/>
-          <Item Value="DtRealizada"/>
-          <Item Value="Semana"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="CargaDadosSemanaPrecoMedio3Iterator" id="CargaDadosSemanaPrecoMedio31">
-      <nodeDefinition DefName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"
-                      Name="CargaDadosSemanaPrecoMedio310">
-        <AttrNames>
-          <Item Value="ItemIditem"/>
-          <Item Value="DtRealizada"/>
-          <Item Value="Semana"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
+    <graph IterBinding="CargaDadosView3Iterator" id="CargaDadosView31" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="LINE_VERT_STACK">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Quantfaturamento"/>
+            <item value="Quantcliente"/>
+          </data>
+        </series>
+        <groups>
+          <item value="DtRealizada"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="CargaDadosView3Iterator" id="CargaDadosView32" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Quantcliente" label="Quantidade de Clientes"/>
+            <item value="Quantfaturamento" label="Quantidade Faturada"/>
+          </data>
+        </series>
+        <groups>
+          <item value="DtRealizada"/>
+        </groups>
+      </graphDataMap>
+    </graph>
   </bindings>
 </pageDefinition>

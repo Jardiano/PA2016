@@ -43,17 +43,14 @@
     Name="ItemView2"
     ViewObjectName="br.com.una.pa.model.view.ItemView"/>
   <ViewUsage
-    Name="CargaDadosMesPrecoMedio1"
-    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio"/>
+    Name="DadosRegressaoGrupoView1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView"/>
   <ViewUsage
-    Name="CargaDadosMesPrecoMedio3"
-    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosMesPrecoMedio"/>
+    Name="DadosRegressaoItemView3"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView"/>
   <ViewUsage
-    Name="CargaDadosSemanaPrecoMedio1"
-    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"/>
-  <ViewUsage
-    Name="CargaDadosSemanaPrecoMedio3"
-    ViewObjectName="br.com.una.pa.model.view.viewQuery.CargaDadosSemanaPrecoMedio"/>
+    Name="DadosRegressaoItemView1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -79,15 +76,9 @@
     DstViewUsageName="br.com.una.pa.model.AppModule.ItemView2"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="FkItemIdItemPrecoMedioLink1"
-    ViewLinkObjectName="br.com.una.pa.model.view.FkItemIdItemPrecoMedioLink"
+    Name="FkItemDadosRegrItemLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkItemDadosRegrItemLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
-    DstViewUsageName="br.com.una.pa.model.AppModule.CargaDadosMesPrecoMedio3"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="FKItemIdItemSemPMedioLink1"
-    ViewLinkObjectName="br.com.una.pa.model.view.FKItemIdItemSemPMedioLink"
-    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
-    DstViewUsageName="br.com.una.pa.model.AppModule.CargaDadosSemanaPrecoMedio1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegressaoItemView1"
     Reversed="false"/>
 </AppModule>

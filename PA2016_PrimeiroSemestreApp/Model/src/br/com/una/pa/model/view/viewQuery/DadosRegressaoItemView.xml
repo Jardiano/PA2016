@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DadosRegressaoItemView"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewAccessor
+    Name="MesStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.MesStaticView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Mes"
+    ListVOName="MesStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Mes"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdMes"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescMes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT
+			  B.ITEM_IDITEM AS ID_ITEM, C.NM_ITEM AS NM_ITEM,
+			  EXTRACT(MONTH FROM B.DT_REALIZADA) AS MES,EXTRACT(YEAR FROM B.DT_REALIZADA) AS ANO,
+				SUM(B.QUANTFATURAMENTO) AS TOTAL_FAT_MES,SUM(B.QUANTCLIENTE) AS TOTAL_CLI_MES,
+			  TRUNC(REGR_AVGY(SUM(B.QUANTFATURAMENTO),EXTRACT(MONTH FROM B.DT_REALIZADA)) 
+				  OVER (ORDER BY EXTRACT(YEAR FROM B.DT_REALIZADA),EXTRACT(MONTH FROM B.DT_REALIZADA),B.ITEM_IDITEM),2) AS REGRESSAO_VALOR_FAT_MES,
+			  TRUNC(REGR_AVGY(SUM(B.QUANTCLIENTE),EXTRACT(MONTH FROM B.DT_REALIZADA)) 
+				  OVER (ORDER BY EXTRACT(YEAR FROM B.DT_REALIZADA),EXTRACT(MONTH FROM B.DT_REALIZADA),B.ITEM_IDITEM),2) AS REGRESSAO_VALOR_CLI_MES
+	    FROM CARGA_DADOS B
+		INNER JOIN ITEM C ON B.ITEM_IDITEM = C.ID_ITEM
+		WHERE B.DT_REALIZADA >= (SELECT TRUNC(ADD_MONTHS(MAX(DT_REALIZADA),-5),'MONTH') AS DIA FROM CARGA_DADOS)
+		GROUP BY B.ITEM_IDITEM,C.NM_ITEM,EXTRACT(MONTH FROM B.DT_REALIZADA),EXTRACT(YEAR FROM B.DT_REALIZADA)
+		ORDER BY MES,EXTRACT(YEAR FROM B.DT_REALIZADA),EXTRACT(MONTH FROM B.DT_REALIZADA)]]></SQLQuery>
+  <ViewAttribute
+    Name="IdItem"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ID_ITEM"
+    Expression="ID_ITEM"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="NmItem"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="45"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NM_ITEM"
+    Expression="NM_ITEM"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="45"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Mes"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="MES"
+    Expression="MES"
+    SQLType="NUMERIC"
+    LOVName="LOV_Mes">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Ano"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ANO"
+    Expression="ANO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="TotalFatMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_FAT_MES"
+    Expression="TOTAL_FAT_MES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="TotalCliMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_CLI_MES"
+    Expression="TOTAL_CLI_MES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RegressaoValorFatMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="REGRESSAO_VALOR_FAT_MES"
+    Expression="REGRESSAO_VALOR_FAT_MES"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="RegressaoValorCliMes"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="REGRESSAO_VALOR_CLI_MES"
+    Expression="REGRESSAO_VALOR_CLI_MES"
+    SQLType="NUMERIC"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
