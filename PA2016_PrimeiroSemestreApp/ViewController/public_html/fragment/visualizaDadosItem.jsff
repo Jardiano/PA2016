@@ -30,6 +30,16 @@
         </af:column>
       </af:table>
     </af:panelHeader>
+    <af:panelGroupLayout layout="vertical" id="pgl4">
+      <af:panelHeader text="Filtro de Item" id="ph3">
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.DadosRegressaoItemViewCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.DadosRegressaoItemViewCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.DadosRegressaoItemViewCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.DadosRegressaoItemViewCriteriaQuery.processQueryOperation}"
+                  displayMode="simple"/>
+      </af:panelHeader>
+    </af:panelGroupLayout>
     <af:panelGridLayout id="pgl3">
       <af:gridRow marginTop="5px" height="auto" id="gr1">
         <af:gridCell id="gc2">
@@ -38,7 +48,7 @@
               <dvt:specialEffects/>
             </dvt:background>
             <dvt:graphPlotArea/>
-            <dvt:seriesSet>
+            <dvt:seriesSet markerDisplayed="true">
               <dvt:series/>
             </dvt:seriesSet>
             <dvt:o1Axis/>
@@ -52,7 +62,7 @@
               <dvt:specialEffects/>
             </dvt:background>
             <dvt:graphPlotArea/>
-            <dvt:seriesSet>
+            <dvt:seriesSet markerDisplayed="true">
               <dvt:series/>
             </dvt:seriesSet>
             <dvt:o1Axis/>

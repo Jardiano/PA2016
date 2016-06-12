@@ -51,14 +51,28 @@
     PrecisionRule="true"
     EntityAttrName="CodItem"
     EntityUsage="Item"
-    AliasName="COD_ITEM"/>
+    AliasName="COD_ITEM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.ItemView.CodItem_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NmItem"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="NmItem"
     EntityUsage="Item"
-    AliasName="NM_ITEM"/>
+    AliasName="NM_ITEM">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.ItemView.NmItem_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ClasseIdtipo"
     IsNotNull="true"
@@ -71,6 +85,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="br.com.una.pa.model.view.ItemView.ClasseIdtipo_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -84,4 +100,8 @@
     ViewLink="br.com.una.pa.model.view.FkItemDadosRegrItemLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

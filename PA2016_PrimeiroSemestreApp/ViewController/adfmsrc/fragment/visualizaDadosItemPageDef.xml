@@ -8,6 +8,9 @@
               ChangeEventPolicy="ppr"/>
     <iterator Binds="DadosRegressaoItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DadosRegressaoItemView1Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="DadosRegressaoItemViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DadosRegressaoItemView1Iterator" id="DadosRegressaoItemViewCriteriaQuery"/>
   </executables>
   <bindings>
     <action IterBinding="DadosRegressaoItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>

@@ -18,6 +18,28 @@
         ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="MesVar"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView.MesVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="AnoVar"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView.AnoVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="MesStaticView1"
     ViewObjectName="br.com.una.pa.model.view.viewStatic.MesStaticView"
@@ -144,6 +166,50 @@
     AliasName="REGRESSAO_VALOR_CLI_MES"
     Expression="REGRESSAO_VALOR_CLI_MES"
     SQLType="NUMERIC"/>
+  <ViewCriteria
+    Name="DadosRegressaoItemViewCriteria"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DadosRegressaoItemViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Mes"
+        ViewAttribute="Mes"
+        Operator="="
+        Conjunction="AND"
+        Value=":MesVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Ano"
+        ViewAttribute="Ano"
+        Operator="="
+        Conjunction="AND"
+        Value=":AnoVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>
