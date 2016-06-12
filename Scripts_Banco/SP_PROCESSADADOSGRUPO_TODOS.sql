@@ -1,8 +1,6 @@
 CREATE OR REPLACE PROCEDURE SP_PROCESSADADOSGRUPO_TODOS (VALORPARAMETRO IN INT) AS
       BEGIN
-	     DECLARE 
-			------------------------------------------------ Variaveis da Lista por 30 Dias ------
-			--------------------------------------------------------------------------------------		 
+	     DECLARE 					 
 			IDITEM INT;
 			NOMEITEM VARCHAR (100);
 			QTDTOTCLIENTEMES FLOAT;
@@ -20,8 +18,6 @@ CREATE OR REPLACE PROCEDURE SP_PROCESSADADOSGRUPO_TODOS (VALORPARAMETRO IN INT) 
 			CENARIOPESSIMISTAFATURAMENTO FLOAT;
 			CENARIOPROVAVELFAT FLOAT;
 			CENARIOPROVAVELCLI FLOAT;
-			----------------------------------------------- Variaveis da Lista por 15 Dias ---------
-			----------------------------------------------------------------------------------------
 			IDITEM01 INT;
 			NOMEITEM01 VARCHAR (100);
 			QTDTOTCLIENTEMES01 FLOAT;
@@ -38,9 +34,7 @@ CREATE OR REPLACE PROCEDURE SP_PROCESSADADOSGRUPO_TODOS (VALORPARAMETRO IN INT) 
 			CENARIOTIMISTAFATURAMENTO01 FLOAT;
 			CENARIOPESSIMISTAFATURAMENTO01 FLOAT;
 			CENARIOPROVAVELFAT01 FLOAT;
-			CENARIOPROVAVELCLI01 FLOAT;
-			------------------------------------------------- Fim da Declarção das Variaveis dos Cursores ------
-			----------------------------------------------------------------------------------------------------
+			CENARIOPROVAVELCLI01 FLOAT;			
 			CONTADOR NUMBER := 0;
 			TOTALCONT NUMBER;
 			MESINSERIDO NUMBER := 0;
