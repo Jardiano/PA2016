@@ -51,6 +51,9 @@
   <ViewUsage
     Name="DadosRegressaoItemView1"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoItemView"/>
+  <ViewUsage
+    Name="DadosRegressaoGrupoView2"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -80,5 +83,11 @@
     ViewLinkObjectName="br.com.una.pa.model.view.FkItemDadosRegrItemLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
     DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegressaoItemView1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkTipoClaDadosRegrGrupLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClaDadosRegrGrupLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegressaoGrupoView2"
     Reversed="false"/>
 </AppModule>

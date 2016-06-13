@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:commandButton text="Visualizar Classe" id="cb5" action="classe"/>
   <af:panelGroupLayout layout="scroll" id="pgl1">
-    <af:panelHeader text="ItemView1" id="ph1">
+    <af:panelHeader text="Item" id="ph1">
       <af:table id="md1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
                 emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
                 value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
@@ -40,10 +41,11 @@
                   displayMode="simple"/>
       </af:panelHeader>
     </af:panelGroupLayout>
-    <af:panelGridLayout id="pgl3">
-      <af:gridRow marginTop="5px" height="auto" id="gr1">
+    <af:panelGridLayout id="pgl3" styleClass="AFStretchWidth">
+      <af:gridRow marginTop="5px" id="gr1" height="100%">
         <af:gridCell id="gc2">
-          <dvt:lineGraph id="graph2" value="#{bindings.DadosRegressaoItemView11.graphModel}" subType="LINE_VERT_ABS">
+          <dvt:lineGraph id="graph2" value="#{bindings.DadosRegressaoItemView11.graphModel}" subType="LINE_VERT_ABS"
+                         timeAxisInterval="CTAI_MONTH">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -57,7 +59,8 @@
           </dvt:lineGraph>
         </af:gridCell>
         <af:gridCell marginStart="5px" width="50%" id="gc1">
-          <dvt:lineGraph id="graph1" value="#{bindings.DadosRegressaoItemView1.graphModel}" subType="LINE_VERT_ABS">
+          <dvt:lineGraph id="graph1" value="#{bindings.DadosRegressaoItemView1.graphModel}" subType="LINE_VERT_ABS"
+                         timeAxisInterval="CTAI_MONTH">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>

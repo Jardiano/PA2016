@@ -17,9 +17,9 @@
       <property
          name="y">200.79883</property>
       <property
-         name="x">208.5</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">208.5</property>
    </View>
    <View
       id="View3">
@@ -28,16 +28,55 @@
       <property
          name="page">/fragment/visualizaDadosItem.jsff</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosItem&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosItem&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">141.79883</property>
+         name="y">111.09766</property>
+      <property
+         name="x">404.02246</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">visualizaDadosGrupo</property>
+      <property
+         name="page">/fragment/visualizaDadosGrupo.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosGrupo&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">274.79883</property>
       <property
          name="pageFragment">true</property>
       <property
-         name="x">430.02246</property>
+         name="x">504.0293</property>
    </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View4">
+      <property
+         name="fromOutcome">classe</property>
+      <property
+         name="sdm:polyPoints">B44,400.52246,168.8608,500.5293,220.44824,T44</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View4"
+      to="View3">
+      <property
+         name="fromOutcome">item</property>
+      <property
+         name="sdm:polyPoints">T56,507.5293,216.2321,407.52246,165.44824,B56</property>
+   </ControlFlowCase>
 </SDM>

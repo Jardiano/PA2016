@@ -28,10 +28,26 @@
     PrecisionRule="true"
     EntityAttrName="DescClasse"
     EntityUsage="Tipoclasse"
-    AliasName="DESC_CLASSE"/>
+    AliasName="DESC_CLASSE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.TipoclasseView.DescClasse_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ItemView"
     ViewLink="br.com.una.pa.model.view.FkClasseItemLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DadosRegressaoGrupoView"
+    ViewLink="br.com.una.pa.model.view.FkTipoClaDadosRegrGrupLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

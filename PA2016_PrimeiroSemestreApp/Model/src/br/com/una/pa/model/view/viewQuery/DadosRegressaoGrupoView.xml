@@ -18,6 +18,49 @@
         ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="MesVar"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView.MesVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="AnoVar"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView.AnoVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="MesStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.MesStaticView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Mes"
+    ListVOName="MesStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Mes"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdMes"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescMes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT
 			  D.ID_TIPO_CLASSE AS ID_GRUPO, D.DESC_CLASSE AS NM_GRUPO,
 			  EXTRACT(MONTH FROM B.DT_REALIZADA) AS MES,EXTRACT(YEAR FROM B.DT_REALIZADA) AS ANO,
@@ -31,14 +74,14 @@
 		INNER JOIN TIPOCLASSE D ON D.ID_TIPO_CLASSE = C.CLASSE_IDTIPO
 		WHERE B.DT_REALIZADA >= (SELECT TRUNC(ADD_MONTHS(MAX(DT_REALIZADA),-5),'MONTH') AS DIA FROM CARGA_DADOS)
 		GROUP BY D.ID_TIPO_CLASSE,D.DESC_CLASSE,EXTRACT(MONTH FROM B.DT_REALIZADA),EXTRACT(YEAR FROM B.DT_REALIZADA)
-		ORDER BY EXTRACT(YEAR FROM B.DT_REALIZADA),EXTRACT(MONTH FROM B.DT_REALIZADA)]]></SQLQuery>
+		ORDER BY MES,EXTRACT(YEAR FROM B.DT_REALIZADA),EXTRACT(MONTH FROM B.DT_REALIZADA)]]></SQLQuery>
   <ViewAttribute
     Name="IdGrupo"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigInteger"
-    ColumnType="BIGINT"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
     AliasName="ID_GRUPO"
     Expression="ID_GRUPO"
     SQLType="NUMERIC"/>
@@ -59,14 +102,21 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Mes"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="MES"
     Expression="MES"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC"
+    LOVName="LOV_Mes">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Ano"
     IsUpdateable="false"
@@ -117,6 +167,50 @@
     AliasName="REGRESSAO_VALOR_CLI_MES"
     Expression="REGRESSAO_VALOR_CLI_MES"
     SQLType="NUMERIC"/>
+  <ViewCriteria
+    Name="DadosRegressaoGrupoViewCriteria"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DadosRegressaoGrupoViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Mes"
+        ViewAttribute="Mes"
+        Operator="="
+        Conjunction="AND"
+        Value=":MesVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DadosRegressaoGrupoViewCriteria_DadosRegressaoGrupoViewCriteria_row_0_Ano"
+        ViewAttribute="Ano"
+        Operator="="
+        Conjunction="AND"
+        Value=":AnoVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>

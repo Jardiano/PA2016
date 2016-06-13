@@ -1,2 +1,117 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"></ui:composition>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:commandButton text="Visualizar Item" id="cb5" action="item"/>
+  <af:panelGroupLayout layout="scroll" id="pgl1">
+    <af:panelHeader text="Classe" id="ph1">
+      <af:table id="md1" rows="#{bindings.TipoclasseView1.rangeSize}" fetchSize="#{bindings.TipoclasseView1.rangeSize}"
+                emptyText="#{bindings.TipoclasseView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                value="#{bindings.TipoclasseView1.collectionModel}" rowBandingInterval="0"
+                selectedRowKeys="#{bindings.TipoclasseView1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.TipoclasseView1.collectionModel.makeCurrent}" rowSelection="single"
+                columnStretching="column:c2">
+        <af:column headerText="#{bindings.TipoclasseView1.hints.IdTipoClasse.label}"
+                   sortProperty="#{bindings.TipoclasseView1.hints.IdTipoClasse.name}" sortable="false" id="c1">
+          <af:outputText value="#{row.IdTipoClasse}" shortDesc="#{bindings.TipoclasseView1.hints.IdTipoClasse.tooltip}"
+                         id="ot1"/>
+        </af:column>
+         
+        <af:column headerText="#{bindings.TipoclasseView1.hints.DescClasse.label}"
+                   sortProperty="#{bindings.TipoclasseView1.hints.DescClasse.name}" sortable="false" id="c2">
+          <af:outputText value="#{row.DescClasse}" shortDesc="#{bindings.TipoclasseView1.hints.DescClasse.tooltip}"
+                         id="ot2"/>
+        </af:column>
+      </af:table>
+    </af:panelHeader>
+    <af:panelGroupLayout layout="vertical" id="pgl4">
+      <af:panelHeader text="Filtro de Classe" id="ph3">
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.processQueryOperation}"
+                  displayMode="simple"/>
+      </af:panelHeader>
+    </af:panelGroupLayout>
+    <af:panelGridLayout id="pgl3">
+      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr1">
+        <af:gridCell marginStart="5px" width="50%" id="gc1">
+          <dvt:lineGraph id="graph3" value="#{bindings.DadosRegressaoGrupoView22.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc2">
+          <dvt:lineGraph id="graph2" value="#{bindings.DadosRegressaoGrupoView21.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:panelHeader text="DadosRegressaoGrupoView2" id="ph2" visible="false">
+      <af:panelFormLayout partialTriggers="md1" id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.IdGrupo.hints.label}" id="plam1">
+          <af:outputText value="#{bindings.IdGrupo.inputValue}" shortDesc="#{bindings.IdGrupo.hints.tooltip}" id="ot3"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.NmGrupo.hints.label}" id="plam2">
+          <af:outputText value="#{bindings.NmGrupo.inputValue}" shortDesc="#{bindings.NmGrupo.hints.tooltip}" id="ot4"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Mes.hints.label}" id="plam3">
+          <af:outputText value="#{bindings.Mes.inputValue}" shortDesc="#{bindings.Mes.hints.tooltip}" id="ot5"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.Ano.hints.label}" id="plam4">
+          <af:outputText value="#{bindings.Ano.inputValue}" shortDesc="#{bindings.Ano.hints.tooltip}" id="ot6"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.TotalFatMes.hints.label}" id="plam5">
+          <af:outputText value="#{bindings.TotalFatMes.inputValue}" shortDesc="#{bindings.TotalFatMes.hints.tooltip}"
+                         id="ot7"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.TotalCliMes.hints.label}" id="plam6">
+          <af:outputText value="#{bindings.TotalCliMes.inputValue}" shortDesc="#{bindings.TotalCliMes.hints.tooltip}"
+                         id="ot8"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.RegressaoValorFatMes.hints.label}" id="plam7">
+          <af:outputText value="#{bindings.RegressaoValorFatMes.inputValue}"
+                         shortDesc="#{bindings.RegressaoValorFatMes.hints.tooltip}" id="ot9"/>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.RegressaoValorCliMes.hints.label}" id="plam8">
+          <af:outputText value="#{bindings.RegressaoValorCliMes.inputValue}"
+                         shortDesc="#{bindings.RegressaoValorCliMes.hints.tooltip}" id="ot10"/>
+        </af:panelLabelAndMessage>
+        <f:facet name="footer">
+          <af:panelGroupLayout layout="horizontal" id="pgl2">
+            <f:facet name="separator">
+              <af:spacer width="10" height="1" id="s1"/>
+            </f:facet>
+            <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                              disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb1"/>
+            <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                              disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb2"/>
+            <af:commandButton actionListener="#{bindings.Next.execute}" text="Next" disabled="#{!bindings.Next.enabled}"
+                              partialSubmit="true" id="cb3"/>
+            <af:commandButton actionListener="#{bindings.Last.execute}" text="Last" disabled="#{!bindings.Last.enabled}"
+                              partialSubmit="true" id="cb4"/>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelFormLayout>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</ui:composition>

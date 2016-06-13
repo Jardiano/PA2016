@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.2.64.36" id="visualizaDadosGrupoPageDef"
+                Package="fragment">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="TipoclasseView1" RangeSize="25" DataControl="AppModuleDataControl" id="TipoclasseView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="DadosRegressaoGrupoView2" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="DadosRegressaoGrupoView2Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="DadosRegressaoGrupoViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="TipoclasseView1Iterator" id="TipoclasseView1">
+      <nodeDefinition DefName="br.com.una.pa.model.view.TipoclasseView" Name="TipoclasseView10">
+        <AttrNames>
+          <Item Value="IdTipoClasse"/>
+          <Item Value="DescClasse"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DadosRegressaoGrupoView2Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DadosRegressaoGrupoView2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DadosRegressaoGrupoView2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DadosRegressaoGrupoView2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="IdGrupo">
+      <AttrNames>
+        <Item Value="IdGrupo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="NmGrupo">
+      <AttrNames>
+        <Item Value="NmGrupo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="Mes">
+      <AttrNames>
+        <Item Value="Mes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="Ano">
+      <AttrNames>
+        <Item Value="Ano"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="TotalFatMes">
+      <AttrNames>
+        <Item Value="TotalFatMes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="TotalCliMes">
+      <AttrNames>
+        <Item Value="TotalCliMes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="RegressaoValorFatMes">
+      <AttrNames>
+        <Item Value="RegressaoValorFatMes"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DadosRegressaoGrupoView2Iterator" id="RegressaoValorCliMes">
+      <AttrNames>
+        <Item Value="RegressaoValorCliMes"/>
+      </AttrNames>
+    </attributeValues>
+    <graph IterBinding="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoView21"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="RegressaoValorCliMes" label="Regressão Cliente"/>
+            <item value="RegressaoValorFatMes" label="Regressão Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Mes"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoView22"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="TotalCliMes" label="Total Clientes"/>
+            <item value="TotalFatMes" label="Total Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Mes"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+  </bindings>
+</pageDefinition>
