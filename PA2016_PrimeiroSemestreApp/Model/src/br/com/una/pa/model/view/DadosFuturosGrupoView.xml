@@ -24,9 +24,7 @@
        DadosFuturosGrupo.CENARIOPROVAVELFAT, 
        DadosFuturosGrupo.CENARIOPROVAVELCLI, 
        DadosFuturosGrupo.TIPO_PROCESSAMENTO, 
-       DadosFuturosGrupo.DATAPROCESSAMENTO, 
-       DadosFuturosGrupo.ITEM_REPROCESSADO, 
-       DadosFuturosGrupo.ROWID"
+       DadosFuturosGrupo.ITEM_REPROCESSADO"
   FromList="DADOS_FUTUROS_GRUPO DadosFuturosGrupo"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -150,22 +148,9 @@
     EntityUsage="DadosFuturosGrupo"
     AliasName="TIPO_PROCESSAMENTO"/>
   <ViewAttribute
-    Name="Dataprocessamento"
-    PrecisionRule="true"
-    EntityAttrName="Dataprocessamento"
-    EntityUsage="DadosFuturosGrupo"
-    AliasName="DATAPROCESSAMENTO"/>
-  <ViewAttribute
     Name="ItemReprocessado"
     PrecisionRule="true"
     EntityAttrName="ItemReprocessado"
     EntityUsage="DadosFuturosGrupo"
     AliasName="ITEM_REPROCESSADO"/>
-  <ViewAttribute
-    Name="Rowid"
-    IsUpdateable="false"
-    PrecisionRule="true"
-    EntityAttrName="Rowid"
-    EntityUsage="DadosFuturosGrupo"
-    AliasName="ROWID"/>
 </ViewObject>

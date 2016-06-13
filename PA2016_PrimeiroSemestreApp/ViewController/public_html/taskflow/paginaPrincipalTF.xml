@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="paginaPrincipalTF">
-    <default-activity>visualizaDadosGrupo</default-activity>
+    <default-activity>visualizaDadosItem</default-activity>
     <view id="fragmento1">
       <page>/fragment/fragmento1.jsff</page>
     </view>

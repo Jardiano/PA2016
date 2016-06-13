@@ -16,7 +16,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="DADOS_FUTUROS_GRUPO"/>
+    TableName="DADOS_FUTUROS_GRUPO"
+    PrimaryKey="true"/>
   <Attribute
     Name="IdGrupo"
     ColumnName="ID_GRUPO"
@@ -160,13 +161,6 @@
     ColumnType="NUMBER"
     TableName="DADOS_FUTUROS_GRUPO"/>
   <Attribute
-    Name="Dataprocessamento"
-    ColumnName="DATAPROCESSAMENTO"
-    SQLType="TIMESTAMP"
-    Type="oracle.jbo.domain.Timestamp"
-    ColumnType="TIMESTAMP"
-    TableName="DADOS_FUTUROS_GRUPO"/>
-  <Attribute
     Name="ItemReprocessado"
     Precision="1"
     ColumnName="ITEM_REPROCESSADO"
@@ -180,13 +174,32 @@
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
   </Attribute>
-  <Attribute
-    Name="Rowid"
-    IsUpdateable="false"
-    ColumnName="ROWID"
-    SQLType="ROWID"
-    Type="oracle.jbo.domain.RowID"
-    ColumnType="ROWID"
-    TableName="DADOS_FUTUROS_GRUPO"
-    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="Tipoclasse"
+    Association="br.com.una.pa.model.entity.FkTipoClasDadosFutGruopAssoc"
+    AssociationEnd="br.com.una.pa.model.entity.FkTipoClasDadosFutGruopAssoc.Tipoclasse"
+    AssociationOtherEnd="br.com.una.pa.model.entity.FkTipoClasDadosFutGruopAssoc.DadosFuturosGrupo"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DadosfuturosgrupoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DADOSFUTUROSGRUPO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="br.com.una.pa.model.entity.DadosFuturosGrupo.IdDadosFuturosGrupo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_DadosFuturosGrupo">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PK_IDTIPO_CLASSE"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_DADOS_FUTUROS_GRUPO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="br.com.una.pa.model.entity.DadosFuturosGrupo.IdGrupo"/>
+    </AttrArray>
+  </Key>
 </Entity>

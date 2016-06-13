@@ -28,9 +28,9 @@
       <property
          name="page">/fragment/visualizaDadosItem.jsff</property>
       <property
-         name="start">false</property>
+         name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosItem&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosItem&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -47,9 +47,9 @@
       <property
          name="page">/fragment/visualizaDadosGrupo.jsff</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosGrupo&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>visualizaDadosGrupo&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property

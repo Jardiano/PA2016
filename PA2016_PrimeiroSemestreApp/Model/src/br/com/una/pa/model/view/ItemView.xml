@@ -96,6 +96,11 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
+    Name="DadosFuturosItemView"
+    ViewLink="br.com.una.pa.model.view.FkItemDadosFuturoItemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
     Name="DadosRegressaoItemView"
     ViewLink="br.com.una.pa.model.view.FkItemDadosRegrItemLink"
     Type="oracle.jbo.RowIterator"

@@ -62,6 +62,13 @@
     AssociationOtherEnd="br.com.una.pa.model.entity.FkClasseItemAssoc.Item"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DadosFuturosItem"
+    Association="br.com.una.pa.model.entity.FkItemDadosFuturoItemAssoc"
+    AssociationEnd="br.com.una.pa.model.entity.FkItemDadosFuturoItemAssoc.DadosFuturosItem"
+    AssociationOtherEnd="br.com.una.pa.model.entity.FkItemDadosFuturoItemAssoc.Item"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
   <Key
     Name="PkIditem"
     PrimaryKey="true">

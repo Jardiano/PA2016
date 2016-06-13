@@ -46,6 +46,11 @@
     ViewLink="br.com.una.pa.model.view.FkTipoClaDadosRegrGrupLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DadosFuturosGrupoView"
+    ViewLink="br.com.una.pa.model.view.FkTipoClasseDadosFuturosGruopLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>

@@ -24,14 +24,110 @@
        DadosFuturosItem.CENARIOPROVAVELFAT, 
        DadosFuturosItem.CENARIOPROVAVELCLI, 
        DadosFuturosItem.TIPO_PROCESSAMENTO, 
-       DadosFuturosItem.DATAPROCESSAMENTO, 
-       DadosFuturosItem.ITEM_REPROCESSADO, 
-       DadosFuturosItem.ROWID"
+       DadosFuturosItem.ITEM_REPROCESSADO"
   FromList="DADOS_FUTUROS_ITEM DadosFuturosItem"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
   UseGlueCode="false">
+  <Variable
+    Name="MesVar"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.DadosFuturosItemView.MesVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="AnoVar"
+    Kind="viewcriteria"
+    Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.DadosFuturosItemView.AnoVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="MesStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.MesStaticView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AnoStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.AnoStaticView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Mesvariado"
+    ListVOName="MesStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Mesvariado"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdMes"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescMes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Anovariado"
+    ListVOName="AnoStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Anovariado"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Mesfuturo"
+    ListVOName="MesStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Mesfuturo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdMes"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescMes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Anofuturo"
+    ListVOName="AnoStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Anofuturo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="DadosFuturosItem"
     Entity="br.com.una.pa.model.entity.DadosFuturosItem"/>
@@ -88,13 +184,29 @@
     PrecisionRule="true"
     EntityAttrName="Mesvariado"
     EntityUsage="DadosFuturosItem"
-    AliasName="MESVARIADO"/>
+    AliasName="MESVARIADO"
+    LOVName="LOV_Mesvariado">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Anovariado"
     PrecisionRule="true"
     EntityAttrName="Anovariado"
     EntityUsage="DadosFuturosItem"
-    AliasName="ANOVARIADO"/>
+    AliasName="ANOVARIADO"
+    LOVName="LOV_Anovariado">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Cenariotimistacliente"
     PrecisionRule="true"
@@ -112,13 +224,29 @@
     PrecisionRule="true"
     EntityAttrName="Mesfuturo"
     EntityUsage="DadosFuturosItem"
-    AliasName="MESFUTURO"/>
+    AliasName="MESFUTURO"
+    LOVName="LOV_Mesfuturo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Anofuturo"
     PrecisionRule="true"
     EntityAttrName="Anofuturo"
     EntityUsage="DadosFuturosItem"
-    AliasName="ANOFUTURO"/>
+    AliasName="ANOFUTURO"
+    LOVName="LOV_Anofuturo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Cenariotimistafaturamento"
     PrecisionRule="true"
@@ -150,22 +278,60 @@
     EntityUsage="DadosFuturosItem"
     AliasName="TIPO_PROCESSAMENTO"/>
   <ViewAttribute
-    Name="Dataprocessamento"
-    PrecisionRule="true"
-    EntityAttrName="Dataprocessamento"
-    EntityUsage="DadosFuturosItem"
-    AliasName="DATAPROCESSAMENTO"/>
-  <ViewAttribute
     Name="ItemReprocessado"
     PrecisionRule="true"
     EntityAttrName="ItemReprocessado"
     EntityUsage="DadosFuturosItem"
     AliasName="ITEM_REPROCESSADO"/>
-  <ViewAttribute
-    Name="Rowid"
-    IsUpdateable="false"
-    PrecisionRule="true"
-    EntityAttrName="Rowid"
-    EntityUsage="DadosFuturosItem"
-    AliasName="ROWID"/>
+  <ViewCriteria
+    Name="DadosFuturosItemViewCriteria"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosItemView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="DadosFuturosItemViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Mesfuturo"
+        ViewAttribute="Mesfuturo"
+        Operator="="
+        Conjunction="AND"
+        Value=":MesVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DadosFuturosItemViewCriteria_DadosFuturosItemViewCriteria_row_0_Anofuturo"
+        ViewAttribute="Anofuturo"
+        Operator="="
+        Conjunction="AND"
+        Value=":AnoVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="IdDadosFuturosItem"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -13,12 +13,6 @@
     Name="CargaDadosView1"
     ViewObjectName="br.com.una.pa.model.view.CargaDadosView"/>
   <ViewUsage
-    Name="DadosFuturosGrupoView1"
-    ViewObjectName="br.com.una.pa.model.view.DadosFuturosGrupoView"/>
-  <ViewUsage
-    Name="DadosFuturosItemView1"
-    ViewObjectName="br.com.una.pa.model.view.DadosFuturosItemView"/>
-  <ViewUsage
     Name="ItemView1"
     ViewObjectName="br.com.una.pa.model.view.ItemView"/>
   <ViewUsage
@@ -54,6 +48,18 @@
   <ViewUsage
     Name="DadosRegressaoGrupoView2"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView"/>
+  <ViewUsage
+    Name="DadosFuturosGrupoView1"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosGrupoView"/>
+  <ViewUsage
+    Name="DadosFuturosItemView1"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosItemView"/>
+  <ViewUsage
+    Name="DadosFuturosItemView2"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosItemView"/>
+  <ViewUsage
+    Name="DadosFuturosGrupoView2"
+    ViewObjectName="br.com.una.pa.model.view.DadosFuturosGrupoView"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -89,5 +95,17 @@
     ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClaDadosRegrGrupLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
     DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegressaoGrupoView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkItemDadosFuturoItemLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkItemDadosFuturoItemLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.DadosFuturosItemView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkTipoClasseDadosFuturosGruopLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClasseDadosFuturosGruopLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.DadosFuturosGrupoView2"
     Reversed="false"/>
 </AppModule>

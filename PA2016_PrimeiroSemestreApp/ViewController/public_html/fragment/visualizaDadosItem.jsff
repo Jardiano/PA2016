@@ -3,34 +3,48 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:commandButton text="Visualizar Classe" id="cb5" action="classe"/>
   <af:panelGroupLayout layout="scroll" id="pgl1">
-    <af:panelHeader text="Item" id="ph1">
-      <af:table id="md1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
-                emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
-                value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
-                selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
-                selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
-                styleClass="AFStretchWidth">
-         
-         
-         
-        <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
-                   headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c2">
-          <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot2"/>
-        </af:column>
-        <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="false"
-                   headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c1">
-          <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot1"/>
-        </af:column>
-        <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="false"
-                   headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c3">
-          <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}" label="#{row.bindings.ClasseIdtipo.label}"
-                              required="#{bindings.ItemView1.hints.ClasseIdtipo.mandatory}"
-                              shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" readOnly="true" id="soc2">
-            <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si2"/>
-          </af:selectOneChoice>
-        </af:column>
-      </af:table>
-    </af:panelHeader>
+    <af:panelGroupLayout id="pgl5" layout="horizontal">
+      <af:panelHeader text="Item" id="ph1">
+        <af:table id="md1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
+                  emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                  value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
+                  columnStretching="last">
+          <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
+                     headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c2">
+            <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="false"
+                     headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c1">
+            <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot1"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="false"
+                     headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c3">
+            <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}"
+                                label="#{row.bindings.ClasseIdtipo.label}"
+                                required="#{bindings.ItemView1.hints.ClasseIdtipo.mandatory}"
+                                shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" readOnly="true" id="soc2">
+              <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si2"/>
+            </af:selectOneChoice>
+          </af:column>
+        </af:table>
+      </af:panelHeader>
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <dvt:barGraph id="graph3" value="#{bindings.DadosFuturosItemView2.graphModel}" subType="BAR_VERT_CLUST">
+          <dvt:background>
+            <dvt:specialEffects/>
+          </dvt:background>
+          <dvt:graphPlotArea/>
+          <dvt:seriesSet>
+            <dvt:series/>
+          </dvt:seriesSet>
+          <dvt:o1Axis/>
+          <dvt:y1Axis/>
+          <dvt:legendArea automaticPlacement="AP_NEVER"/>
+        </dvt:barGraph>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
     <af:panelGroupLayout layout="vertical" id="pgl4">
       <af:panelHeader text="Filtro de Item" id="ph3">
         <af:query id="qryId1" headerText="Search" disclosed="true"

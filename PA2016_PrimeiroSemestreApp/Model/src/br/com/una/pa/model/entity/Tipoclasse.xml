@@ -39,6 +39,13 @@
     AssociationOtherEnd="br.com.una.pa.model.entity.FkClasseItemAssoc.Tipoclasse"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DadosFuturosGrupo"
+    Association="br.com.una.pa.model.entity.FkTipoClasDadosFutGruopAssoc"
+    AssociationEnd="br.com.una.pa.model.entity.FkTipoClasDadosFutGruopAssoc.DadosFuturosGrupo"
+    AssociationOtherEnd="br.com.una.pa.model.entity.FkTipoClasDadosFutGruopAssoc.Tipoclasse"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <Key
     Name="PkIdtipoClasse"
     PrimaryKey="true">

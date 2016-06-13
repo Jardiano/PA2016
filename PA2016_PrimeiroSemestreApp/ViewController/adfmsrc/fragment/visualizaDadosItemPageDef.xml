@@ -11,6 +11,11 @@
     <searchRegion Criteria="DadosRegressaoItemViewCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="DadosRegressaoItemView1Iterator" id="DadosRegressaoItemViewCriteriaQuery"/>
+    <iterator Binds="DadosFuturosItemView2" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="DadosFuturosItemView2Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="DadosFuturosItemViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DadosFuturosItemView2Iterator"
+                  id="DadosFuturosItemViewCriteriaQuery"/>
   </executables>
   <bindings>
     <action IterBinding="DadosRegressaoItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
@@ -91,5 +96,20 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <graph IterBinding="DadosFuturosItemView2Iterator" id="DadosFuturosItemView2"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Cenariopessimistacliente"/>
+            <item value="Cenarioprovavelcli"/>
+            <item value="Cenariotimistacliente"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Mesfuturo"/>
+        </groups>
+      </graphDataMap>
+    </graph>
   </bindings>
 </pageDefinition>
