@@ -45,6 +45,68 @@
         </dvt:barGraph>
       </af:panelGroupLayout>
     </af:panelGroupLayout>
+    <af:panelGridLayout id="pgl7">
+      <af:gridRow marginTop="5px" height="100%" id="gr2">
+        <af:gridCell marginStart="5px" width="50%" id="gc3">
+          <dvt:barGraph id="graph4" value="#{bindings.DadosFuturosItemView1.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" id="gc4">
+          <dvt:barGraph id="graph5" value="#{bindings.DadosFuturosItemView11.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr3">
+        <af:gridCell marginStart="5px" width="50%" id="gc6">
+          <dvt:barGraph id="graph7" value="#{bindings.DadosFuturosItemView13.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" width="50%" id="gc7">
+          <dvt:barGraph id="graph6" value="#{bindings.DadosFuturosItemView12.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+      </af:gridRow>
+    </af:panelGridLayout>
     <af:panelGroupLayout layout="vertical" id="pgl4">
       <af:panelHeader text="Filtro de Item" id="ph3">
         <af:query id="qryId1" headerText="Search" disclosed="true"

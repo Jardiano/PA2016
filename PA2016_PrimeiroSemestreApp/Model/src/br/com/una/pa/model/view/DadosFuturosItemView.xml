@@ -60,6 +60,10 @@
     Name="AnoStaticView1"
     ViewObjectName="br.com.una.pa.model.view.viewStatic.AnoStaticView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PeriodoProcesssamentoStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.PeriodoProcesssamentoStaticView"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Mesvariado"
     ListVOName="MesStaticView1"
@@ -125,6 +129,23 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Ano"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TipoProcessamento"
+    ListVOName="PeriodoProcesssamentoStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TipoProcessamento"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdTipoProcessamento"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescTipoProcessamento"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -276,7 +297,15 @@
     PrecisionRule="true"
     EntityAttrName="TipoProcessamento"
     EntityUsage="DadosFuturosItem"
-    AliasName="TIPO_PROCESSAMENTO"/>
+    AliasName="TIPO_PROCESSAMENTO"
+    LOVName="LOV_TipoProcessamento">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ItemReprocessado"
     PrecisionRule="true"

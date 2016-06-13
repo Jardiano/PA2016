@@ -1,0 +1,24 @@
+select item_iditem,quantcliente,quantfaturamento,dt_realizada from carga_dados;
+
+
+*Variação (Volume * Variação (Media da Diferença do Percentual entre os últimos 12 meses)),
+*Volume do Cenário Otimista ((Maior Variação *Volume Ultimo Mês)+ Volume Ultimo Mes), 
+*Volume do Cenário Pessimista ((Menor Variação * Volume Ultimo Mês ) +Volume Ultimo Mes), 
+*Volume Provável ((Variação* Ultimo Mes)+Ultimo Mês)
+
+
+select distinct id_item,
+    nome_item,
+    totalcliente,
+    variacaocli,
+    cenariotimistacliente,
+    cenariopessimistacliente,
+    cenarioprovavelcli,
+    mesvariado,
+    mesfuturo,
+    anovariado,
+    anofuturo,
+    tipo_processamento
+from dados_futuros_item
+where  tipo_processamento = 2
+order by id_item;
