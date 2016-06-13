@@ -15,6 +15,9 @@
               id="DadosFuturosItemView2Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="DadosFuturosItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DadosFuturosItemView1Iterator"/>
+    <searchRegion Criteria="DadosFuturosItemViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DadosFuturosItemView2Iterator"
+                  id="DadosFuturosItemViewCriteriaQuery1"/>
   </executables>
   <bindings>
     <action IterBinding="DadosRegressaoItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>

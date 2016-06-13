@@ -52,6 +52,17 @@
       </SchemaBasedProperties>
     </Properties>
   </Variable>
+  <Variable
+    Name="TipoPeriodoVar"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.DadosFuturosItemView.TipoPeriodoVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
   <ViewAccessor
     Name="MesStaticView1"
     ViewObjectName="br.com.una.pa.model.view.viewStatic.MesStaticView"
@@ -102,8 +113,9 @@
     Name="LOV_Mesfuturo"
     ListVOName="MesStaticView1"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="Mesfuturo"/>
     </AttrArray>
@@ -119,8 +131,9 @@
     Name="LOV_Anofuturo"
     ListVOName="AnoStaticView1"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="Anofuturo"/>
     </AttrArray>
@@ -136,8 +149,9 @@
     Name="LOV_TipoProcessamento"
     ListVOName="PeriodoProcesssamentoStaticView1"
     ListRangeSize="-1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="TipoProcessamento"/>
     </AttrArray>
@@ -302,7 +316,7 @@
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="radio"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -352,6 +366,14 @@
         Operator="="
         Conjunction="AND"
         Value=":AnoVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TipoProcessamento"
+        ViewAttribute="TipoProcessamento"
+        Operator="="
+        Conjunction="AND"
+        Value=":TipoPeriodoVar"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

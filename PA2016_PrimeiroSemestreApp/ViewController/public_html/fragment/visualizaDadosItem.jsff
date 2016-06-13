@@ -31,6 +31,12 @@
         </af:table>
       </af:panelHeader>
       <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:query id="qryId3" headerText="Search" disclosed="true"
+                  value="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryDescriptor}"
+                  model="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryModel}"
+                  queryListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQuery}"
+                  queryOperationListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQueryOperation}"
+                  displayMode="simple"/>
         <dvt:barGraph id="graph3" value="#{bindings.DadosFuturosItemView2.graphModel}" subType="BAR_VERT_CLUST">
           <dvt:background>
             <dvt:specialEffects/>
