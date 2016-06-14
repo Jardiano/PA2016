@@ -3,58 +3,68 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:commandButton text="Visualizar Classe" id="cb5" action="classe"/>
   <af:panelGroupLayout layout="scroll" id="pgl1">
-    <af:panelGroupLayout id="pgl5" layout="horizontal">
-      <af:panelHeader text="Item" id="ph1">
-        <af:table id="md1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
-                  emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
-                  value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
-                  selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
-                  selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
-                  columnStretching="last">
-          <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
-                     headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c2">
-            <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot2"/>
-          </af:column>
-          <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="false"
-                     headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c1">
-            <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot1"/>
-          </af:column>
-          <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="false"
-                     headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c3">
-            <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}"
-                                label="#{row.bindings.ClasseIdtipo.label}"
-                                required="#{bindings.ItemView1.hints.ClasseIdtipo.mandatory}"
-                                shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" readOnly="true" id="soc2">
-              <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si2"/>
-            </af:selectOneChoice>
-          </af:column>
-        </af:table>
-      </af:panelHeader>
-      <af:panelGroupLayout id="pgl6" layout="vertical">
-        <af:query id="qryId3" headerText="Search" disclosed="true"
-                  value="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryDescriptor}"
-                  model="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryModel}"
-                  queryListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQuery}"
-                  queryOperationListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQueryOperation}"
-                  displayMode="simple"/>
-        <dvt:barGraph id="graph3" value="#{bindings.DadosFuturosItemView2.graphModel}" subType="BAR_VERT_CLUST">
-          <dvt:background>
-            <dvt:specialEffects/>
-          </dvt:background>
-          <dvt:graphPlotArea/>
-          <dvt:seriesSet>
-            <dvt:series/>
-          </dvt:seriesSet>
-          <dvt:o1Axis/>
-          <dvt:y1Axis/>
-          <dvt:legendArea automaticPlacement="AP_NEVER"/>
-        </dvt:barGraph>
-      </af:panelGroupLayout>
+    <af:query id="qryId3" headerText="Search" disclosed="true"
+              value="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryDescriptor}"
+              model="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryModel}"
+              queryListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQuery}"
+              queryOperationListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQueryOperation}"
+              displayMode="simple" labelAlignment="top" rows="1" maxColumns="3"/>
+    <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
+      <af:outputText value="Seleção de item" id="ot3"
+                     inlineStyle="font-family:Arial; font-size:18px; font-weight:bold; font-style:oblique;"/>
     </af:panelGroupLayout>
-    <af:panelGridLayout id="pgl7">
-      <af:gridRow marginTop="5px" height="100%" id="gr2">
-        <af:gridCell marginStart="5px" width="50%" id="gc3">
-          <dvt:barGraph id="graph4" value="#{bindings.DadosFuturosItemView1.graphModel}" subType="BAR_VERT_CLUST">
+    <af:table id="md1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
+              emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+              value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
+              selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
+              columnStretching="last" autoHeightRows="10" styleClass="AFStretchWidth">
+      <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
+                 headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c2" width="200">
+        <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot2"
+                       inlineStyle="font-size:12px; font-family:Arial;"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="false"
+                 headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c1" width="200">
+        <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot1"
+                       inlineStyle="font-size:12px; font-family:Arial;"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="false"
+                 headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c3" width="300">
+        <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}" label="#{row.bindings.ClasseIdtipo.label}"
+                            required="#{bindings.ItemView1.hints.ClasseIdtipo.mandatory}"
+                            shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" readOnly="true" id="soc2"
+                            contentStyle="font-size:12px; font-family:Arial;">
+          <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si2"/>
+        </af:selectOneChoice>
+      </af:column>
+    </af:table>
+    <af:panelGroupLayout id="pgl6" layout="vertical"/>
+    <af:panelGridLayout id="pgl3">
+      <af:gridRow marginTop="5px" height="100%" id="gr1">
+        <af:gridCell width="33%" id="gc1">
+          <af:outputText value="Informações sobre venda" id="ot4" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph1" value="#{bindings.DadosFuturosItemView2.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+            <dvt:o1TickLabel id="o1TickLabel1" tickLabelSkipMode="TLS_MANUAL">
+              <dvt:graphFont id="graphFont1"/>
+            </dvt:o1TickLabel>
+            <dvt:o1Title id="o1Title1" text="Mês"/>
+            <dvt:y1Title id="y1Title1" text="Quantidade"/>
+          </dvt:barGraph>
+        </af:gridCell>
+        <af:gridCell width="33%" id="gc2">
+          <af:outputText value="Informações sobre estoque" id="ot12" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph2" value="#{bindings.DadosFuturosItemView21.graphModel}" subType="BAR_VERT_CLUST">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -67,8 +77,9 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:barGraph>
         </af:gridCell>
-        <af:gridCell marginStart="5px" width="50%" id="gc4">
-          <dvt:barGraph id="graph5" value="#{bindings.DadosFuturosItemView11.graphModel}" subType="BAR_VERT_CLUST">
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3">
+          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot13" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph3" value="#{bindings.DadosFuturosItemView22.graphModel}" subType="BAR_VERT_CLUST">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -82,79 +93,10 @@
           </dvt:barGraph>
         </af:gridCell>
       </af:gridRow>
-      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr3">
-        <af:gridCell marginStart="5px" width="50%" id="gc6">
-          <dvt:barGraph id="graph7" value="#{bindings.DadosFuturosItemView13.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:barGraph>
-        </af:gridCell>
-        <af:gridCell marginStart="5px" width="50%" id="gc7">
-          <dvt:barGraph id="graph6" value="#{bindings.DadosFuturosItemView12.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:barGraph>
-        </af:gridCell>
-      </af:gridRow>
-    </af:panelGridLayout>
-    <af:panelGroupLayout layout="vertical" id="pgl4">
-      <af:panelHeader text="Filtro de Item" id="ph3">
-        <af:query id="qryId1" headerText="Search" disclosed="true"
-                  value="#{bindings.DadosRegressaoItemViewCriteriaQuery.queryDescriptor}"
-                  model="#{bindings.DadosRegressaoItemViewCriteriaQuery.queryModel}"
-                  queryListener="#{bindings.DadosRegressaoItemViewCriteriaQuery.processQuery}"
-                  queryOperationListener="#{bindings.DadosRegressaoItemViewCriteriaQuery.processQueryOperation}"
-                  displayMode="simple"/>
-      </af:panelHeader>
-    </af:panelGroupLayout>
-    <af:panelGridLayout id="pgl3" styleClass="AFStretchWidth">
-      <af:gridRow marginTop="5px" id="gr1" height="100%">
-        <af:gridCell id="gc2">
-          <dvt:lineGraph id="graph2" value="#{bindings.DadosRegressaoItemView11.graphModel}" subType="LINE_VERT_ABS"
-                         timeAxisInterval="CTAI_MONTH">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet markerDisplayed="true">
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:lineGraph>
-        </af:gridCell>
-        <af:gridCell marginStart="5px" width="50%" id="gc1">
-          <dvt:lineGraph id="graph1" value="#{bindings.DadosRegressaoItemView1.graphModel}" subType="LINE_VERT_ABS"
-                         timeAxisInterval="CTAI_MONTH">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet markerDisplayed="true">
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:lineGraph>
-        </af:gridCell>
+      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr2">
+        <af:gridCell marginStart="5px" width="34%" id="gc4"/>
+        <af:gridCell marginStart="5px" width="33%" id="gc5"/>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6"/>
       </af:gridRow>
     </af:panelGridLayout>
     <af:panelHeader text="DadosRegressaoItemView1" id="ph2" visible="false">
