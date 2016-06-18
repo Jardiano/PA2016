@@ -60,6 +60,15 @@
   <ViewUsage
     Name="DadosRegressaoGrupoView2"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegressaoGrupoView"/>
+  <ViewUsage
+    Name="CenariosQuantCliPorItem1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorItem"/>
+  <ViewUsage
+    Name="CenariosQuantFatPorItem2"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CenariosQuantFatPorItem"/>
+  <ViewUsage
+    Name="TotalFaturadoClientePorItem1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.TotalFaturadoClientePorItem"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -107,5 +116,23 @@
     ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClaDadosRegrGrupLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
     DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegressaoGrupoView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkItemCenarioQuantItem1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkItemCenarioQuantItemLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.CenariosQuantCliPorItem1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkItemCenarioFatItemLink2"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkItemCenarioFatItemLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.CenariosQuantFatPorItem2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKItemTotalFatClieItemLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FKItemTotalFatClieItemLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.TotalFaturadoClientePorItem1"
     Reversed="false"/>
 </AppModule>

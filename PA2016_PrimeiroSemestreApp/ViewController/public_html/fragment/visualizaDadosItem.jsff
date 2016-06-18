@@ -40,6 +40,61 @@
       </af:column>
     </af:table>
     <af:panelGroupLayout id="pgl6" layout="vertical"/>
+    <af:panelGridLayout id="pgl5">
+      <af:gridRow marginTop="5px" height="100%" id="gr3">
+        <af:gridCell width="33%" id="gc7">
+          <af:outputText value="Informações sobre venda" id="ot14" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph4" value="#{bindings.CenariosQuantCliPorItem1.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+        <af:gridCell width="33%" id="gc8">
+          <af:outputText value="Informações sobre estoque" id="ot16" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph5" value="#{bindings.CenariosQuantFatPorItem2.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
+          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot17" inlineStyle="font-size:11px;"/>
+          <dvt:lineGraph id="graph6" value="#{bindings.TotalFaturadoClientePorItem1.graphModel}"
+                         subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr4">
+        <af:gridCell marginStart="5px" width="34%" id="gc10"/>
+        <af:gridCell marginStart="5px" width="33%" id="gc11"/>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
+      </af:gridRow>
+    </af:panelGridLayout>
     <af:panelGridLayout id="pgl3">
       <af:gridRow marginTop="5px" height="100%" id="gr1">
         <af:gridCell width="33%" id="gc1">

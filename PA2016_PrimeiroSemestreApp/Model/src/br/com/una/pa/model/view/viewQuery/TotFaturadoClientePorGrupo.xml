@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TotFaturadoClientePorGrupo"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="br.com.una.pa.model.view.viewQuery.TotFaturadoClientePorGrupo_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT
+        C.ID_TIPO_CLASSE AS COD_CLASSE,
+        C.DESC_CLASSE AS NM_CLASSE,
+        EXTRACT(MONTH FROM A.DT_REALIZADA) AS MES_NUM,
+        CASE 
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 1 THEN 'Jan'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 2 THEN 'Fev'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 3 THEN 'Mar'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 4 THEN 'Abr'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 5 THEN 'Mai'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 6 THEN 'Jun'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 7 THEN 'Jul'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 8 THEN 'Ago'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 9 THEN 'Set'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 10 THEN 'Out'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 11 THEN 'Nov'
+            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 12 THEN 'Dez'
+        END MES_DESC,  
+        EXTRACT(YEAR FROM A.DT_REALIZADA) AS ANO,
+        SUM (A.QUANTFATURAMENTO) AS TOTALFATURADO,
+        SUM (A.QUANTCLIENTE) AS TOTALCLIENTE
+      FROM CARGA_DADOS A
+      INNER JOIN ITEM B ON A.ITEM_IDITEM = B.ID_ITEM
+      INNER JOIN TIPOCLASSE C ON B.CLASSE_IDTIPO = C.ID_TIPO_CLASSE
+      WHERE A.DT_REALIZADA >= (SELECT TRUNC(ADD_MONTHS(MAX(DT_REALIZADA),-5),'MONTH') AS DIA FROM CARGA_DADOS)
+      GROUP BY C.ID_TIPO_CLASSE,C.DESC_CLASSE,EXTRACT(YEAR FROM A.DT_REALIZADA),EXTRACT(MONTH FROM A.DT_REALIZADA)
+      ORDER BY EXTRACT(YEAR FROM A.DT_REALIZADA),EXTRACT(MONTH FROM A.DT_REALIZADA)]]></SQLQuery>
+  <ViewAttribute
+    Name="CodClasse"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="COD_CLASSE"
+    Expression="COD_CLASSE"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="NmClasse"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NM_CLASSE"
+    Expression="NM_CLASSE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MesNum"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="MES_NUM"
+    Expression="MES_NUM"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="MesDesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="MES_DESC"
+    Expression="MES_DESC"
+    SQLType="CHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Ano"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ANO"
+    Expression="ANO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Totalfaturado"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TOTALFATURADO"
+    Expression="TOTALFATURADO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="Totalcliente"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="TOTALCLIENTE"
+    Expression="TOTALCLIENTE"
+    SQLType="NUMERIC"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

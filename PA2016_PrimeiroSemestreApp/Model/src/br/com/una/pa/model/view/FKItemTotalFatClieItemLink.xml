@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FKItemTotalFatClieItemLink"
+  Version="11.1.2.64.36">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="br.com.una.pa.model.view.FKItemTotalFatClieItemLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ItemView"
+    Cardinality="1"
+    Source="true"
+    Owner="br.com.una.pa.model.view.ItemView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ItemView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="br.com.una.pa.model.view.ItemView.IdItem"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="TotalFaturadoClientePorItem"
+    Cardinality="-1"
+    Owner="br.com.una.pa.model.view.viewQuery.TotalFaturadoClientePorItem">
+    <DesignTime>
+      <Attr Name="_finderName" Value="TotalFaturadoClientePorItem"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="br.com.una.pa.model.view.viewQuery.TotalFaturadoClientePorItem.CodItem"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

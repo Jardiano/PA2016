@@ -17,9 +17,9 @@
       <property
          name="y">200.79883</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">208.5</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View3">
@@ -36,9 +36,9 @@
       <property
          name="y">111.09766</property>
       <property
-         name="x">404.02246</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">404.02246</property>
    </View>
    <View
       id="View4">
@@ -55,9 +55,9 @@
       <property
          name="y">274.79883</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">504.0293</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -77,6 +77,6 @@
       <property
          name="fromOutcome">item</property>
       <property
-         name="sdm:polyPoints">T56,507.5293,216.2321,407.52246,165.44824,B56</property>
+         name="sdm:polyPoints">T56,507.5293,216.25859,407.52246,164.74707,B56</property>
    </ControlFlowCase>
 </SDM>

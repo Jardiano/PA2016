@@ -13,6 +13,12 @@
     <searchRegion Criteria="DadosFuturosItemViewCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="DadosFuturosItemView2Iterator"
                   id="DadosFuturosItemViewCriteriaQuery1"/>
+    <iterator Binds="CenariosQuantCliPorItem1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="CenariosQuantCliPorItem1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="CenariosQuantFatPorItem2" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="CenariosQuantFatPorItem2Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="TotalFaturadoClientePorItem1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="TotalFaturadoClientePorItem1Iterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <action IterBinding="DadosRegressaoItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
@@ -106,6 +112,50 @@
         </series>
         <groups>
           <item value="Mesfuturo"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="CenariosQuantCliPorItem1Iterator" id="CenariosQuantCliPorItem1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="CenariopessimistaCli" label="Cenario Pessimista"/>
+            <item value="CenariootimistaCli" label="Cenario Otimista"/>
+            <item value="CenarioprovavelCli" label="Cenario Provavel"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="CenariosQuantFatPorItem2Iterator" id="CenariosQuantFatPorItem2"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="CenariopessimistaFat" label="Cenario Pessimista"/>
+            <item value="CenariootimistaFat" label="Cenario Otimista"/>
+            <item value="CenarioprovavelFat" label="Cenario Provavel"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="TotalFaturadoClientePorItem1Iterator" id="TotalFaturadoClientePorItem1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Totalcliente" label="Total Cliente"/>
+            <item value="Totalfaturado" label="Total Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
         </groups>
       </graphDataMap>
     </graph>

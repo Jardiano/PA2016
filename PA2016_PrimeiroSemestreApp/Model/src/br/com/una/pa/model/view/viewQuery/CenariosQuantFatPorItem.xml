@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CenariosQuantFatPorItem"
+  Version="11.1.2.64.36"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy='"ID_ITEM"'>
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantFatPorItem_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <SQLQuery><![CDATA[SELECT DISTINCT
+          A.ID_ITEM AS ID_ITEM,A.NOME_ITEM AS NM_ITEM,
+          A.CENARIOTIMISTAFATURAMENTO AS CENARIOOTIMISTA_FAT,
+          A.CENARIOPESSIMISTAFATURAMENTO AS CENARIOPESSIMISTA_FAT,
+          A.CENARIOPROVAVELFAT AS CENARIOPROVAVEL_FAT,
+          A.MESFUTURO AS MES_NUM,
+          CASE 
+            WHEN A.MESFUTURO = 1 THEN 'Jan'
+            WHEN A.MESFUTURO = 2 THEN 'Fev'
+            WHEN A.MESFUTURO = 3 THEN 'Mar'
+            WHEN A.MESFUTURO = 4 THEN 'Abr'
+            WHEN A.MESFUTURO = 5 THEN 'Mai'
+            WHEN A.MESFUTURO = 6 THEN 'Jun'
+            WHEN A.MESFUTURO = 7 THEN 'Jul'
+            WHEN A.MESFUTURO = 8 THEN 'Ago'
+            WHEN A.MESFUTURO = 9 THEN 'Set'
+            WHEN A.MESFUTURO = 10 THEN 'Out'
+            WHEN A.MESFUTURO = 11 THEN 'Nov'
+            WHEN A.MESFUTURO = 12 THEN 'Dez'
+          END MES_DESC,  
+          A.ANOFUTURO AS ANO
+      FROM DADOS_FUTUROS_ITEM A
+      WHERE A.TIPO_PROCESSAMENTO = 2]]></SQLQuery>
+  <ViewAttribute
+    Name="IdItem"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="ID_ITEM"
+    Expression="ID_ITEM"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="NmItem"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NM_ITEM"
+    Expression="NM_ITEM"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CenariootimistaFat"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CENARIOOTIMISTA_FAT"
+    Expression="CENARIOOTIMISTA_FAT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CenariopessimistaFat"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CENARIOPESSIMISTA_FAT"
+    Expression="CENARIOPESSIMISTA_FAT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CenarioprovavelFat"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CENARIOPROVAVEL_FAT"
+    Expression="CENARIOPROVAVEL_FAT"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="MesNum"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="MES_NUM"
+    Expression="MES_NUM"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="MesDesc"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="3"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    AliasName="MES_DESC"
+    Expression="MES_DESC"
+    SQLType="CHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantFatPorItem.MesDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Ano"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="ANO"
+    Expression="ANO"
+    SQLType="NUMERIC"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="br.com.una.pa.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

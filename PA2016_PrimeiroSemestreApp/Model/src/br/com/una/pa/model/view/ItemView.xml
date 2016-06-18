@@ -105,6 +105,21 @@
     ViewLink="br.com.una.pa.model.view.FkItemDadosRegrItemLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CenariosQuantCliPorItem"
+    ViewLink="br.com.una.pa.model.view.FkItemCenarioQuantItemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CenariosQuantFatPorItem"
+    ViewLink="br.com.una.pa.model.view.FkItemCenarioFatItemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TotalFaturadoClientePorItem"
+    ViewLink="br.com.una.pa.model.view.FKItemTotalFatClieItemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>
