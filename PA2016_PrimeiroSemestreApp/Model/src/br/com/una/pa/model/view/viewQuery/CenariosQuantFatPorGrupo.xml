@@ -48,7 +48,7 @@
     PrecisionRule="true"
     Precision="38"
     Scale="0"
-    Type="java.math.BigInteger"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="ID_GRUPO"
     Expression="ID_GRUPO"

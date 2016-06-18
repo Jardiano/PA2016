@@ -52,7 +52,7 @@
     PrecisionRule="true"
     Precision="38"
     Scale="0"
-    Type="java.math.BigInteger"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="COD_CLASSE"
     Expression="COD_CLASSE"

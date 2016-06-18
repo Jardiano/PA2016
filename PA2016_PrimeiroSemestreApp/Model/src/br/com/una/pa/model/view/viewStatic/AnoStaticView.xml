@@ -20,11 +20,11 @@
   </Properties>
   <ViewAttribute
     Name="Ano"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="$none$"/>
+    Type="java.math.BigInteger"
+    ColumnType="BIGINT"
+    SQLType="NUMERIC"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="Ano"/>
   </AttrArray>

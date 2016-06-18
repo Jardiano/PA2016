@@ -51,6 +51,26 @@
     ViewLink="br.com.una.pa.model.view.FkTipoClasseDadosFuturosGruopLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CenariosQuantCliPorgrupo"
+    ViewLink="br.com.una.pa.model.view.FKTipoClasseCenarioQuantCliGrupoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CenariosQuantFatPorGrupo"
+    ViewLink="br.com.una.pa.model.view.FkTipoClasseCenarioQuantFatGrupoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DadosRegresGrupoView"
+    ViewLink="br.com.una.pa.model.view.FkTipoClasseDadosRegresGrupoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="TotFaturadoClientePorGrupo"
+    ViewLink="br.com.una.pa.model.view.FkTipoClasseTotFaturadoCliGrupoLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>

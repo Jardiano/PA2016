@@ -3,39 +3,26 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:commandButton text="Visualizar Item" id="cb5" action="item"/>
   <af:panelGroupLayout layout="scroll" id="pgl1">
-    <af:panelHeader text="Classe" id="ph1">
+    <af:panelGroupLayout id="pgl3" halign="center" layout="vertical">
+      <af:outputText value="Seleção de Grupo" id="ot16"
+                     inlineStyle="font-family:Arial; font-size:18px; font-weight:bold; font-style:oblique;"/>
       <af:table id="md1" rows="#{bindings.TipoclasseView1.rangeSize}" fetchSize="#{bindings.TipoclasseView1.rangeSize}"
                 emptyText="#{bindings.TipoclasseView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
                 value="#{bindings.TipoclasseView1.collectionModel}" rowBandingInterval="0"
                 selectedRowKeys="#{bindings.TipoclasseView1.collectionModel.selectedRow}"
                 selectionListener="#{bindings.TipoclasseView1.collectionModel.makeCurrent}" rowSelection="single"
                 columnStretching="column:c2">
-        <af:column headerText="#{bindings.TipoclasseView1.hints.IdTipoClasse.label}"
-                   sortProperty="#{bindings.TipoclasseView1.hints.IdTipoClasse.name}" sortable="false" id="c1">
-          <af:outputText value="#{row.IdTipoClasse}" shortDesc="#{bindings.TipoclasseView1.hints.IdTipoClasse.tooltip}"
-                         id="ot1"/>
-        </af:column>
-         
         <af:column headerText="#{bindings.TipoclasseView1.hints.DescClasse.label}"
                    sortProperty="#{bindings.TipoclasseView1.hints.DescClasse.name}" sortable="false" id="c2">
           <af:outputText value="#{row.DescClasse}" shortDesc="#{bindings.TipoclasseView1.hints.DescClasse.tooltip}"
                          id="ot2"/>
         </af:column>
       </af:table>
-    </af:panelHeader>
-    <af:panelGroupLayout layout="vertical" id="pgl4">
-      <af:panelHeader text="Filtro de Classe" id="ph3">
-        <af:query id="qryId1" headerText="Search" disclosed="true"
-                  value="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.queryDescriptor}"
-                  model="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.queryModel}"
-                  queryListener="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.processQuery}"
-                  queryOperationListener="#{bindings.DadosRegressaoGrupoViewCriteriaQuery.processQueryOperation}"
-                  displayMode="simple"/>
-      </af:panelHeader>
     </af:panelGroupLayout>
-    <af:panelGridLayout id="pgl3">
-      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr1">
-        <af:gridCell marginStart="5px" width="50%" id="gc1">
+    <af:panelGridLayout id="pgl5">
+      <af:gridRow marginTop="5px" height="100%" id="gr3">
+        <af:gridCell width="33%" id="gc7">
+          <af:outputText value="Informações sobre venda" id="ot11"/>
           <dvt:lineGraph id="graph3" value="#{bindings.DadosRegressaoGrupoView22.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
@@ -49,8 +36,24 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:lineGraph>
         </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc2">
-          <dvt:lineGraph id="graph2" value="#{bindings.DadosRegressaoGrupoView21.graphModel}" subType="LINE_VERT_ABS">
+        <af:gridCell width="33%" id="gc8">
+          <af:outputText value="Informações sobre estoque" id="ot12"/>
+          <dvt:barGraph id="graph1" value="#{bindings.CenariosQuantFatPorGrupo1.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+        </af:gridCell>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
+          <af:outputText value="Total Venda, Total Faturado/Mês" id="ot13"/>
+          <dvt:lineGraph id="graph2" value="#{bindings.TotFaturadoClientePorGrupo1.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -63,6 +66,28 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:lineGraph>
         </af:gridCell>
+      </af:gridRow>
+      <af:gridRow id="gr5" height="100%">
+        <af:gridCell id="gc13" width="33%">
+          <af:outputText value="Regressão " id="ot15"/>
+          <dvt:lineGraph id="graph4" value="#{bindings.DadosRegresGrupoView1.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+      </af:gridRow>
+      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr4">
+        <af:gridCell marginStart="5px" width="34%" id="gc10"/>
+        <af:gridCell marginStart="5px" width="33%" id="gc11"/>
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
       </af:gridRow>
     </af:panelGridLayout>
     <af:spacer width="10" height="10" id="s2"/>

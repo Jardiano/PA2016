@@ -23,8 +23,9 @@
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="$none$"/>
+    Type="java.math.BigInteger"
+    ColumnType="BIGINT"
+    SQLType="NUMERIC"/>
   <ViewAttribute
     Name="DescMes"
     IsUpdateable="false"
@@ -32,7 +33,8 @@
     IsPersistent="false"
     PrecisionRule="true"
     Type="java.lang.String"
-    ColumnType="$none$"/>
+    ColumnType="$none$"
+    SQLType="VARCHAR"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="IdMes"/>
   </AttrArray>

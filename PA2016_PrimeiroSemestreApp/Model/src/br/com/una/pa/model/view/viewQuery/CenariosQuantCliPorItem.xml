@@ -19,6 +19,70 @@
         ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorItem_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="MesVar"
+    Kind="viewcriteria"
+    Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorItem.MesVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <Variable
+    Name="AnoVar"
+    Kind="viewcriteria"
+    Type="java.math.BigInteger">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorItem.AnoVar_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Variable>
+  <ViewAccessor
+    Name="MesStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.MesStaticView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AnoStaticView1"
+    ViewObjectName="br.com.una.pa.model.view.viewStatic.AnoStaticView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_MesNum"
+    ListVOName="MesStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MesNum"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdMes"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescMes"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Ano"
+    ListVOName="AnoStaticView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Ano"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <SQLQuery><![CDATA[SELECT DISTINCT
           A.ID_ITEM AS ID_ITEM,A.NOME_ITEM AS NM_ITEM,
           A.CENARIOTIMISTACLIENTE AS CENARIOOTIMISTA_CLI,
@@ -102,7 +166,6 @@
     SQLType="NUMERIC"/>
   <ViewAttribute
     Name="MesNum"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="38"
@@ -111,17 +174,19 @@
     ColumnType="NUMBER"
     AliasName="MES_NUM"
     Expression="MES_NUM"
-    SQLType="NUMERIC">
+    SQLType="NUMERIC"
+    LOVName="LOV_MesNum">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorItem.MesNum_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="MesDesc"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="3"
@@ -136,7 +201,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Ano"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="38"
@@ -145,7 +209,51 @@
     ColumnType="NUMBER"
     AliasName="ANO"
     Expression="ANO"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC"
+    LOVName="LOV_Ano">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="CenariosQuantCliPorItemCriteria"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorItem"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CenariosQuantCliPorItemCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="MesNum"
+        ViewAttribute="MesNum"
+        Operator="="
+        Conjunction="AND"
+        Value=":MesVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>

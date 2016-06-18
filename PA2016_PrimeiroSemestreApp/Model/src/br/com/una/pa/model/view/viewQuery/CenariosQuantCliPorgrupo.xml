@@ -18,60 +18,87 @@
         ResId="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorgrupo_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[SELECT
-        C.ID_TIPO_CLASSE AS COD_CLASSE,
-        C.DESC_CLASSE AS NM_CLASSE,
-        EXTRACT(MONTH FROM A.DT_REALIZADA) AS MES_NUM,
-        CASE 
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 1 THEN 'Jan'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 2 THEN 'Fev'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 3 THEN 'Mar'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 4 THEN 'Abr'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 5 THEN 'Mai'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 6 THEN 'Jun'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 7 THEN 'Jul'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 8 THEN 'Ago'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 9 THEN 'Set'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 10 THEN 'Out'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 11 THEN 'Nov'
-            WHEN EXTRACT(MONTH FROM (A.DT_REALIZADA)) = 12 THEN 'Dez'
-        END MES_DESC,  
-        EXTRACT(YEAR FROM A.DT_REALIZADA) AS ANO,
-        SUM (A.QUANTFATURAMENTO) AS TOTALFATURADO,
-        SUM (A.QUANTCLIENTE) AS TOTALCLIENTE
-      FROM CARGA_DADOS A
-      INNER JOIN ITEM B ON A.ITEM_IDITEM = B.ID_ITEM
-      INNER JOIN TIPOCLASSE C ON B.CLASSE_IDTIPO = C.ID_TIPO_CLASSE
-      WHERE A.DT_REALIZADA >= (SELECT TRUNC(ADD_MONTHS(MAX(DT_REALIZADA),-5),'MONTH') AS DIA FROM CARGA_DADOS)
-      GROUP BY C.ID_TIPO_CLASSE,C.DESC_CLASSE,EXTRACT(YEAR FROM A.DT_REALIZADA),EXTRACT(MONTH FROM A.DT_REALIZADA)
-      ORDER BY EXTRACT(YEAR FROM A.DT_REALIZADA),EXTRACT(MONTH FROM A.DT_REALIZADA)]]></SQLQuery>
+  <SQLQuery><![CDATA[SELECT 
+          A.ID_GRUPO AS ID_GRUPO,A.NOME_GRUPO AS NM_GRUPO,
+          A.CENARIOTIMISTACLIENTE AS CENARIOOTIMISTA_CLI,
+          A.CENARIOPESSIMISTACLIENTE AS CENARIOPESSIMISTA_CLI,
+          A.CENARIOPROVAVELCLI AS CENARIOPROVAVEL_CLI,
+          A.MESFUTURO AS MES_NUM,
+          CASE 
+            WHEN A.MESFUTURO = 1 THEN 'Jan'
+            WHEN A.MESFUTURO = 2 THEN 'Fev'
+            WHEN A.MESFUTURO = 3 THEN 'Mar'
+            WHEN A.MESFUTURO = 4 THEN 'Abr'
+            WHEN A.MESFUTURO = 5 THEN 'Mai'
+            WHEN A.MESFUTURO = 6 THEN 'Jun'
+            WHEN A.MESFUTURO = 7 THEN 'Jul'
+            WHEN A.MESFUTURO = 8 THEN 'Ago'
+            WHEN A.MESFUTURO = 9 THEN 'Set'
+            WHEN A.MESFUTURO = 10 THEN 'Out'
+            WHEN A.MESFUTURO = 11 THEN 'Nov'
+            WHEN A.MESFUTURO = 12 THEN 'Dez'
+          END MES_DESC,  
+          A.ANOFUTURO AS ANO
+      FROM DADOS_FUTUROS_GRUPO A
+      WHERE A.TIPO_PROCESSAMENTO = 2]]></SQLQuery>
   <ViewAttribute
-    Name="CodClasse"
+    Name="IdGrupo"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="38"
-    Scale="0"
-    Type="java.math.BigInteger"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    AliasName="COD_CLASSE"
-    Expression="COD_CLASSE"
+    AliasName="ID_GRUPO"
+    Expression="ID_GRUPO"
     SQLType="NUMERIC"/>
   <ViewAttribute
-    Name="NmClasse"
+    Name="NmGrupo"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="100"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="NM_CLASSE"
-    Expression="NM_CLASSE"
+    AliasName="NM_GRUPO"
+    Expression="NM_GRUPO"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CenariootimistaCli"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CENARIOOTIMISTA_CLI"
+    Expression="CENARIOOTIMISTA_CLI"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CenariopessimistaCli"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CENARIOPESSIMISTA_CLI"
+    Expression="CENARIOPESSIMISTA_CLI"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CenarioprovavelCli"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="CENARIOPROVAVEL_CLI"
+    Expression="CENARIOPROVAVEL_CLI"
+    SQLType="NUMERIC"/>
   <ViewAttribute
     Name="MesNum"
     IsUpdateable="false"
@@ -110,26 +137,6 @@
     ColumnType="NUMBER"
     AliasName="ANO"
     Expression="ANO"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="Totalfaturado"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    AliasName="TOTALFATURADO"
-    Expression="TOTALFATURADO"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="Totalcliente"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    AliasName="TOTALCLIENTE"
-    Expression="TOTALCLIENTE"
     SQLType="NUMERIC"/>
   <ResourceBundle>
     <PropertiesBundle

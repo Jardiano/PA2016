@@ -8,9 +8,12 @@
               ChangeEventPolicy="ppr"/>
     <iterator Binds="DadosRegressaoGrupoView2" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DadosRegressaoGrupoView2Iterator" ChangeEventPolicy="ppr"/>
-    <searchRegion Criteria="DadosRegressaoGrupoViewCriteria"
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoViewCriteriaQuery"/>
+    <iterator Binds="CenariosQuantFatPorGrupo1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="CenariosQuantFatPorGrupo1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="TotFaturadoClientePorGrupo1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="TotFaturadoClientePorGrupo1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="DadosRegresGrupoView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="DadosRegresGrupoView1Iterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="TipoclasseView1Iterator" id="TipoclasseView1">
@@ -65,20 +68,6 @@
         <Item Value="RegressaoValorCliMes"/>
       </AttrNames>
     </attributeValues>
-    <graph IterBinding="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoView21"
-           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
-      <graphDataMap convert="false" leafOnly="true">
-        <series>
-          <data>
-            <item value="RegressaoValorCliMes" label="Regressão Cliente"/>
-            <item value="RegressaoValorFatMes" label="Regressão Faturado"/>
-          </data>
-        </series>
-        <groups>
-          <item value="Mes"/>
-        </groups>
-      </graphDataMap>
-    </graph>
     <graph IterBinding="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoView22"
            xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
       <graphDataMap convert="false" leafOnly="true">
@@ -90,6 +79,49 @@
         </series>
         <groups>
           <item value="Mes"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="CenariosQuantFatPorGrupo1Iterator" id="CenariosQuantFatPorGrupo1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="CenariopessimistaFat" label="Cenario Pessimista"/>
+            <item value="CenariootimistaFat" label="Cenario Otimista"/>
+            <item value="CenarioprovavelFat" label="Cenario Provavel"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="TotFaturadoClientePorGrupo1Iterator" id="TotFaturadoClientePorGrupo1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Totalcliente" label="Total Cliente"/>
+            <item value="Totalfaturado" label="Total Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="DadosRegresGrupoView1Iterator" id="DadosRegresGrupoView1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="RegressaoValorCliMes" label="Regressão Cliente"/>
+            <item value="RegressaoValorFatMes" label="Regressão Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
         </groups>
       </graphDataMap>
     </graph>

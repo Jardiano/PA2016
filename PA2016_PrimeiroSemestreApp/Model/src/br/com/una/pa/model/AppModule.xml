@@ -72,6 +72,18 @@
   <ViewUsage
     Name="DadosRegresItemView1"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegresItemView"/>
+  <ViewUsage
+    Name="CenariosQuantCliPorgrupo1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CenariosQuantCliPorgrupo"/>
+  <ViewUsage
+    Name="CenariosQuantFatPorGrupo1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.CenariosQuantFatPorGrupo"/>
+  <ViewUsage
+    Name="DadosRegresGrupoView1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegresGrupoView"/>
+  <ViewUsage
+    Name="TotFaturadoClientePorGrupo1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.TotFaturadoClientePorGrupo"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -143,5 +155,29 @@
     ViewLinkObjectName="br.com.una.pa.model.view.FkItemDadosRegresItemLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
     DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegresItemView1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FKTipoClasseCenarioQuantCliGrupoLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FKTipoClasseCenarioQuantCliGrupoLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.CenariosQuantCliPorgrupo1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkTipoClasseCenarioQuantFatGrupoLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClasseCenarioQuantFatGrupoLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.CenariosQuantFatPorGrupo1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkTipoClasseDadosRegresGrupoLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClasseDadosRegresGrupoLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegresGrupoView1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkTipoClasseTotFaturadoCliGrupoLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClasseTotFaturadoCliGrupoLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.TotFaturadoClientePorGrupo1"
     Reversed="false"/>
 </AppModule>
