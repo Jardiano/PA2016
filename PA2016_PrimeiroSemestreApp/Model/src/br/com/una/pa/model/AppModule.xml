@@ -69,6 +69,9 @@
   <ViewUsage
     Name="TotalFaturadoClientePorItem1"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.TotalFaturadoClientePorItem"/>
+  <ViewUsage
+    Name="DadosRegresItemView1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.DadosRegresItemView"/>
   <ViewLinkUsage
     Name="FkAreaLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
@@ -134,5 +137,11 @@
     ViewLinkObjectName="br.com.una.pa.model.view.FKItemTotalFatClieItemLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
     DstViewUsageName="br.com.una.pa.model.AppModule.TotalFaturadoClientePorItem1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkItemDadosRegresItemLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkItemDadosRegresItemLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.DadosRegresItemView1"
     Reversed="false"/>
 </AppModule>

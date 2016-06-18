@@ -89,69 +89,27 @@
           </dvt:lineGraph>
         </af:gridCell>
       </af:gridRow>
+      <af:gridRow id="gr5" height="100%">
+        <af:gridCell id="gc13" width="33%">
+          <af:outputText value="Regressão " id="ot15"/>
+          <dvt:lineGraph id="graph7" value="#{bindings.DadosRegresItemView1.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+      </af:gridRow>
       <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr4">
         <af:gridCell marginStart="5px" width="34%" id="gc10"/>
         <af:gridCell marginStart="5px" width="33%" id="gc11"/>
         <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
-      </af:gridRow>
-    </af:panelGridLayout>
-    <af:panelGridLayout id="pgl3">
-      <af:gridRow marginTop="5px" height="100%" id="gr1">
-        <af:gridCell width="33%" id="gc1">
-          <af:outputText value="Informações sobre venda" id="ot4" inlineStyle="font-size:11px;"/>
-          <dvt:barGraph id="graph1" value="#{bindings.DadosFuturosItemView2.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-            <dvt:o1TickLabel id="o1TickLabel1" tickLabelSkipMode="TLS_MANUAL">
-              <dvt:graphFont id="graphFont1"/>
-            </dvt:o1TickLabel>
-            <dvt:o1Title id="o1Title1" text="Mês"/>
-            <dvt:y1Title id="y1Title1" text="Quantidade"/>
-          </dvt:barGraph>
-        </af:gridCell>
-        <af:gridCell width="33%" id="gc2">
-          <af:outputText value="Informações sobre estoque" id="ot12" inlineStyle="font-size:11px;"/>
-          <dvt:barGraph id="graph2" value="#{bindings.DadosFuturosItemView21.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:barGraph>
-        </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc3">
-          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot13" inlineStyle="font-size:11px;"/>
-          <dvt:barGraph id="graph3" value="#{bindings.DadosFuturosItemView22.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:barGraph>
-        </af:gridCell>
-      </af:gridRow>
-      <af:gridRow marginTop="5px" marginBottom="5px" height="100%" id="gr2">
-        <af:gridCell marginStart="5px" width="34%" id="gc4"/>
-        <af:gridCell marginStart="5px" width="33%" id="gc5"/>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc6"/>
       </af:gridRow>
     </af:panelGridLayout>
     <af:panelHeader text="DadosRegressaoItemView1" id="ph2" visible="false">

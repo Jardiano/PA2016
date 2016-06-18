@@ -120,6 +120,11 @@
     ViewLink="br.com.una.pa.model.view.FKItemTotalFatClieItemLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DadosRegresItemView"
+    ViewLink="br.com.una.pa.model.view.FkItemDadosRegresItemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>

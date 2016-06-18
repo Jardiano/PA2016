@@ -51,9 +51,7 @@
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="38"
-    Scale="0"
-    Type="java.math.BigInteger"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="ID_ITEM"
     Expression="ID_ITEM"
@@ -97,6 +95,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="br.com.una.pa.model.view.viewQuery.DadosRegresItemView.MesDesc_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Ano"
