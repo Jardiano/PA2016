@@ -23,7 +23,7 @@
       <af:gridRow marginTop="5px" height="100%" id="gr3">
         <af:gridCell width="33%" id="gc7">
           <af:outputText value="Informações sobre venda" id="ot11"/>
-          <dvt:lineGraph id="graph3" value="#{bindings.DadosRegressaoGrupoView22.graphModel}" subType="LINE_VERT_ABS">
+          <dvt:barGraph id="graph5" value="#{bindings.CenariosQuantCliPorgrupo1.graphModel}" subType="BAR_VERT_CLUST">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -34,7 +34,7 @@
             <dvt:o1Axis/>
             <dvt:y1Axis/>
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:lineGraph>
+          </dvt:barGraph>
         </af:gridCell>
         <af:gridCell width="33%" id="gc8">
           <af:outputText value="Informações sobre estoque" id="ot12"/>
@@ -51,9 +51,11 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:barGraph>
         </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
-          <af:outputText value="Total Venda, Total Faturado/Mês" id="ot13"/>
-          <dvt:lineGraph id="graph2" value="#{bindings.TotFaturadoClientePorGrupo1.graphModel}" subType="LINE_VERT_ABS">
+      </af:gridRow>
+      <af:gridRow id="gr5" height="100%">
+        <af:gridCell id="gc13" width="33%">
+          <af:outputText value="Regressão " id="ot15"/>
+          <dvt:lineGraph id="graph4" value="#{bindings.DadosRegresGrupoView1.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -66,11 +68,9 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:lineGraph>
         </af:gridCell>
-      </af:gridRow>
-      <af:gridRow id="gr5" height="100%">
-        <af:gridCell id="gc13" width="33%">
-          <af:outputText value="Regressão " id="ot15"/>
-          <dvt:lineGraph id="graph4" value="#{bindings.DadosRegresGrupoView1.graphModel}" subType="LINE_VERT_ABS">
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
+          <af:outputText value="Total Venda, Total Faturado/Mês" id="ot13"/>
+          <dvt:lineGraph id="graph2" value="#{bindings.TotFaturadoClientePorGrupo1.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>

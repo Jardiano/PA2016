@@ -14,6 +14,8 @@
               id="TotFaturadoClientePorGrupo1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="DadosRegresGrupoView1" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DadosRegresGrupoView1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="CenariosQuantCliPorgrupo1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="CenariosQuantCliPorgrupo1Iterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <tree IterBinding="TipoclasseView1Iterator" id="TipoclasseView1">
@@ -68,20 +70,6 @@
         <Item Value="RegressaoValorCliMes"/>
       </AttrNames>
     </attributeValues>
-    <graph IterBinding="DadosRegressaoGrupoView2Iterator" id="DadosRegressaoGrupoView22"
-           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
-      <graphDataMap convert="false" leafOnly="true">
-        <series>
-          <data>
-            <item value="TotalCliMes" label="Total Clientes"/>
-            <item value="TotalFatMes" label="Total Faturado"/>
-          </data>
-        </series>
-        <groups>
-          <item value="Mes"/>
-        </groups>
-      </graphDataMap>
-    </graph>
     <graph IterBinding="CenariosQuantFatPorGrupo1Iterator" id="CenariosQuantFatPorGrupo1"
            xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
       <graphDataMap convert="false" leafOnly="true">
@@ -102,7 +90,7 @@
       <graphDataMap convert="false" leafOnly="true">
         <series>
           <data>
-            <item value="Totalcliente" label="Total Cliente"/>
+            <item value="Totalcliente" label="Total Vendido"/>
             <item value="Totalfaturado" label="Total Faturado"/>
           </data>
         </series>
@@ -116,8 +104,23 @@
       <graphDataMap convert="false" leafOnly="true">
         <series>
           <data>
-            <item value="RegressaoValorCliMes" label="Regressão Cliente"/>
+            <item value="RegressaoValorCliMes" label="Regressão Vendido"/>
             <item value="RegressaoValorFatMes" label="Regressão Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="MesNum" label="MesDesc"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="CenariosQuantCliPorgrupo1Iterator" id="CenariosQuantCliPorgrupo1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="CenariopessimistaCli" label="Cenario Pessimista"/>
+            <item value="CenariootimistaCli" label="Cenario Otimista"/>
+            <item value="CenarioprovavelCli" label="Cenario Provavel"/>
           </data>
         </series>
         <groups>

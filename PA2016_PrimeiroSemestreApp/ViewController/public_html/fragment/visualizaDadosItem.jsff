@@ -8,7 +8,7 @@
               model="#{bindings.DadosFuturosItemViewCriteriaQuery1.queryModel}"
               queryListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQuery}"
               queryOperationListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQueryOperation}"
-              displayMode="simple" labelAlignment="top" rows="1" maxColumns="3"/>
+              displayMode="simple" labelAlignment="top" rows="1" maxColumns="3" visible="false"/>
     <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
       <af:outputText value="Seleção de item" id="ot3"
                      inlineStyle="font-family:Arial; font-size:18px; font-weight:bold; font-style:oblique;"/>
@@ -72,10 +72,11 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:barGraph>
         </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
-          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot17" inlineStyle="font-size:11px;"/>
-          <dvt:lineGraph id="graph6" value="#{bindings.TotalFaturadoClientePorItem1.graphModel}"
-                         subType="LINE_VERT_ABS">
+      </af:gridRow>
+      <af:gridRow id="gr5" height="100%">
+        <af:gridCell id="gc13" width="33%">
+          <af:outputText value="Regressão " id="ot15"/>
+          <dvt:lineGraph id="graph7" value="#{bindings.DadosRegresItemView1.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
@@ -88,11 +89,10 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:lineGraph>
         </af:gridCell>
-      </af:gridRow>
-      <af:gridRow id="gr5" height="100%">
-        <af:gridCell id="gc13" width="33%">
-          <af:outputText value="Regressão " id="ot15"/>
-          <dvt:lineGraph id="graph7" value="#{bindings.DadosRegresItemView1.graphModel}" subType="LINE_VERT_ABS">
+        <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc9">
+          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot17" inlineStyle="font-size:11px;"/>
+          <dvt:lineGraph id="graph6" value="#{bindings.TotalFaturadoClientePorItem1.graphModel}"
+                         subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>

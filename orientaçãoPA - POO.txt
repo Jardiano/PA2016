@@ -1,0 +1,3 @@
+Ajuste da escala
+Revisão ou adicão de visualizações de dados, levando em consideração o peso e volume dos itens
+Adicionar gráfico do volume faturado e vendido x peso 

@@ -108,7 +108,7 @@
       <graphDataMap convert="false" leafOnly="true">
         <series>
           <data>
-            <item value="Totalcliente" label="Total Cliente"/>
+            <item value="Totalcliente" label="Total Vendido"/>
             <item value="Totalfaturado" label="Total Faturado"/>
           </data>
         </series>
@@ -122,7 +122,7 @@
       <graphDataMap convert="false" leafOnly="true">
         <series>
           <data>
-            <item value="RegressaoValorCliMes" label="Regressão Cliente"/>
+            <item value="RegressaoValorCliMes" label="Regressão Vendido"/>
             <item value="RegressaoValorFatMes" label="Regressão Faturado"/>
           </data>
         </series>
