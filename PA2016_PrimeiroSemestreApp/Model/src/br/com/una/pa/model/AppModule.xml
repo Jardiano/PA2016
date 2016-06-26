@@ -7,9 +7,6 @@
   Version="11.1.2.64.36"
   ClearCacheOnRollback="true">
   <ViewUsage
-    Name="AreaView1"
-    ViewObjectName="br.com.una.pa.model.view.AreaView"/>
-  <ViewUsage
     Name="CargaDadosView1"
     ViewObjectName="br.com.una.pa.model.view.CargaDadosView"/>
   <ViewUsage
@@ -24,9 +21,6 @@
   <ViewUsage
     Name="TipoclasseView1"
     ViewObjectName="br.com.una.pa.model.view.TipoclasseView"/>
-  <ViewUsage
-    Name="CargaDadosView2"
-    ViewObjectName="br.com.una.pa.model.view.CargaDadosView"/>
   <ViewUsage
     Name="CargaDadosView3"
     ViewObjectName="br.com.una.pa.model.view.CargaDadosView"/>
@@ -84,12 +78,9 @@
   <ViewUsage
     Name="TotFaturadoClientePorGrupo1"
     ViewObjectName="br.com.una.pa.model.view.viewQuery.TotFaturadoClientePorGrupo"/>
-  <ViewLinkUsage
-    Name="FkAreaLink1"
-    ViewLinkObjectName="br.com.una.pa.model.view.FkAreaLink"
-    SrcViewUsageName="br.com.una.pa.model.AppModule.AreaView1"
-    DstViewUsageName="br.com.una.pa.model.AppModule.CargaDadosView2"
-    Reversed="false"/>
+  <ViewUsage
+    Name="PesoTotalMesPorItemView1"
+    ViewObjectName="br.com.una.pa.model.view.viewQuery.PesoTotalMesPorItemView"/>
   <ViewLinkUsage
     Name="FkItemIditemLink1"
     ViewLinkObjectName="br.com.una.pa.model.view.FkItemIditemLink"
@@ -179,5 +170,11 @@
     ViewLinkObjectName="br.com.una.pa.model.view.FkTipoClasseTotFaturadoCliGrupoLink"
     SrcViewUsageName="br.com.una.pa.model.AppModule.TipoclasseView1"
     DstViewUsageName="br.com.una.pa.model.AppModule.TotFaturadoClientePorGrupo1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FkPesoTotMesItemLink1"
+    ViewLinkObjectName="br.com.una.pa.model.view.FkPesoTotMesItemLink"
+    SrcViewUsageName="br.com.una.pa.model.AppModule.ItemView1"
+    DstViewUsageName="br.com.una.pa.model.AppModule.PesoTotalMesPorItemView1"
     Reversed="false"/>
 </AppModule>

@@ -9,12 +9,7 @@
   DBObjectName="ITEM"
   AliasName="Item"
   BindingStyle="OracleName"
-  UseGlueCode="false"
-  RowClass="br.com.una.pa.model.entity.ItemImpl">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
-    <Attr Name="_isCodegen" Value="true"/>
-  </DesignTime>
+  UseGlueCode="false">
   <Attribute
     Name="IdItem"
     IsNotNull="true"

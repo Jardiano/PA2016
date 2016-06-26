@@ -131,5 +131,35 @@
         </groups>
       </graphDataMap>
     </graph>
+    <attributeValues IterBinding="CenariosQuantFatPorItem2Iterator" id="CenariootimistaFat">
+      <AttrNames>
+        <Item Value="CenariootimistaFat"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CenariosQuantFatPorItem2Iterator" id="CenariopessimistaFat">
+      <AttrNames>
+        <Item Value="CenariopessimistaFat"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CenariosQuantFatPorItem2Iterator" id="CenarioprovavelFat">
+      <AttrNames>
+        <Item Value="CenarioprovavelFat"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CenariosQuantCliPorItem1Iterator" id="CenariootimistaCli">
+      <AttrNames>
+        <Item Value="CenariootimistaCli"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CenariosQuantCliPorItem1Iterator" id="CenariopessimistaCli">
+      <AttrNames>
+        <Item Value="CenariopessimistaCli"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CenariosQuantCliPorItem1Iterator" id="CenarioprovavelCli">
+      <AttrNames>
+        <Item Value="CenarioprovavelCli"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

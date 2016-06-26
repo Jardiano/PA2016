@@ -125,6 +125,11 @@
     ViewLink="br.com.una.pa.model.view.FkItemDadosRegresItemLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="PesoTotalMesPorItemView"
+    ViewLink="br.com.una.pa.model.view.FkPesoTotMesItemLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="br.com.una.pa.model.ModelBundle"/>
