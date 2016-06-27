@@ -90,9 +90,9 @@
             <f:facet name="separator">
               <af:spacer width="10" height="10" id="s2"/>
             </f:facet>
-            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaCli.inputValue}" id="ot4"/>
-            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaCli.inputValue}" id="ot12"/>
-            <af:outputText value="Valor provável : #{bindings.CenarioprovavelCli.inputValue}" id="ot13"/>
+            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaCli.inputValue} KG" id="ot4"/>
+            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaCli.inputValue} KG" id="ot12"/>
+            <af:outputText value="Valor provável : #{bindings.CenarioprovavelCli.inputValue} KG" id="ot13"/>
             <af:separator id="s3"/>
           </af:panelGroupLayout>
         </af:gridCell>
@@ -114,9 +114,9 @@
             <f:facet name="separator">
               <af:spacer width="10" height="10" id="s4"/>
             </f:facet>
-            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaFat.inputValue}" id="ot18"/>
-            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaFat.inputValue}" id="ot19"/>
-            <af:outputText value="Valor provável : #{bindings.CenarioprovavelFat.inputValue}" id="ot20"/>
+            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaFat.inputValue} KG" id="ot18"/>
+            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaFat.inputValue} KG" id="ot19"/>
+            <af:outputText value="Valor provável : #{bindings.CenarioprovavelFat.inputValue} KG" id="ot20"/>
             <af:separator id="s5"/>
           </af:panelGroupLayout>
         </af:gridCell>

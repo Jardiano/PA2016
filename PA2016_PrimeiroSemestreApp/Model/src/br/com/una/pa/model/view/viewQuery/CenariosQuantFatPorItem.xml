@@ -21,9 +21,9 @@
   </Properties>
   <SQLQuery><![CDATA[SELECT DISTINCT
           A.ID_ITEM AS ID_ITEM,A.NOME_ITEM AS NM_ITEM,
-          A.CENARIOTIMISTAFATURAMENTO AS CENARIOOTIMISTA_FAT,
-          A.CENARIOPESSIMISTAFATURAMENTO AS CENARIOPESSIMISTA_FAT,
-          A.CENARIOPROVAVELFAT AS CENARIOPROVAVEL_FAT,
+          A.CENARIOTIMISTAFATURAMENTO * (select peso_medio from item where id_item = A.id_iTEM) AS CENARIOOTIMISTA_FAT,
+          A.CENARIOPESSIMISTAFATURAMENTO * (select peso_medio from item where id_item = A.id_iTEM) AS CENARIOPESSIMISTA_FAT,
+          ROUND(A.CENARIOPROVAVELFAT * (select peso_medio from item where id_item = A.id_iTEM),2) AS CENARIOPROVAVEL_FAT,
           A.MESFUTURO AS MES_NUM,
           CASE 
             WHEN A.MESFUTURO = 1 THEN 'Jan'
@@ -124,7 +124,7 @@
     ColumnType="CHAR"
     AliasName="MES_DESC"
     Expression="MES_DESC"
-    SQLType="CHAR">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
