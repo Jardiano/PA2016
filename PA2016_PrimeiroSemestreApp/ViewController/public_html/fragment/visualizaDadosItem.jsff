@@ -9,7 +9,7 @@
               queryListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQuery}"
               queryOperationListener="#{bindings.DadosFuturosItemViewCriteriaQuery1.processQueryOperation}"
               displayMode="simple" labelAlignment="top" rows="1" maxColumns="3" visible="false"/>
-    <af:panelGroupLayout id="pgl4" halign="center" layout="vertical">
+    <af:panelGroupLayout id="pgl4" halign="left" layout="vertical">
       <af:outputText value="Seleção de item" id="ot3"
                      inlineStyle="font-family:Arial; font-size:18px; font-weight:bold; font-style:oblique;"/>
     </af:panelGroupLayout>
@@ -18,7 +18,7 @@
               value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
               selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
               selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
-              columnStretching="last" autoHeightRows="10" styleClass="AFStretchWidth">
+              columnStretching="last" autoHeightRows="10" styleClass="AFStretchWidth" visible="false">
       <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
                  headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c2" width="200">
         <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot2"
@@ -42,6 +42,36 @@
     <af:panelGroupLayout id="pgl6" layout="vertical"/>
     <af:panelGridLayout id="pgl5">
       <af:gridRow marginTop="5px" height="100%" id="gr3">
+        <af:gridCell id="gc2">
+          <af:table id="t1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
+                    emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
+                    value="#{bindings.ItemView1.collectionModel}" rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.ItemView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.ItemView1.collectionModel.makeCurrent}" rowSelection="single"
+                    autoHeightRows="10" styleClass="AFStretchWidth" disableColumnReordering="true"
+                    columnResizing="disabled">
+            <af:column sortProperty="#{bindings.ItemView1.hints.CodItem.name}" sortable="false"
+                       headerText="#{bindings.ItemView1.hints.CodItem.label}" id="c4" width="50">
+              <af:outputText value="#{row.CodItem}" shortDesc="#{bindings.ItemView1.hints.CodItem.tooltip}" id="ot22"
+                             inlineStyle="font-size:12px; font-family:Arial;"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemView1.hints.NmItem.name}" sortable="false"
+                       headerText="#{bindings.ItemView1.hints.NmItem.label}" id="c5" width="143">
+              <af:outputText value="#{row.NmItem}" shortDesc="#{bindings.ItemView1.hints.NmItem.tooltip}" id="ot23"
+                             inlineStyle="font-size:12px; font-family:Arial;"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.ItemView1.hints.ClasseIdtipo.name}" sortable="false"
+                       headerText="#{bindings.ItemView1.hints.ClasseIdtipo.label}" id="c6" width="100">
+              <af:selectOneChoice value="#{row.bindings.ClasseIdtipo.inputValue}"
+                                  label="#{row.bindings.ClasseIdtipo.label}"
+                                  required="#{bindings.ItemView1.hints.ClasseIdtipo.mandatory}"
+                                  shortDesc="#{bindings.ItemView1.hints.ClasseIdtipo.tooltip}" readOnly="true" id="soc3"
+                                  contentStyle="font-size:12px; font-family:Arial;">
+                <f:selectItems value="#{row.bindings.ClasseIdtipo.items}" id="si3"/>
+              </af:selectOneChoice>
+            </af:column>
+          </af:table>
+        </af:gridCell>
         <af:gridCell width="50%" id="gc7">
           <af:outputText value="Informações sobre venda" id="ot14" inlineStyle="font-size:11px;"/>
           <dvt:barGraph id="graph4" value="#{bindings.CenariosQuantCliPorItem1.graphModel}" subType="BAR_VERT_CLUST">
@@ -92,14 +122,14 @@
         </af:gridCell>
       </af:gridRow>
       <af:gridRow id="gr5" height="100%">
-        <af:gridCell id="gc13" width="50%">
+        <af:gridCell id="gc13" width="33%">
           <af:outputText value="Regressão " id="ot15"/>
           <dvt:lineGraph id="graph7" value="#{bindings.DadosRegresItemView1.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
             </dvt:background>
             <dvt:graphPlotArea/>
-            <dvt:seriesSet>
+            <dvt:seriesSet markerDisplayed="true">
               <dvt:series/>
             </dvt:seriesSet>
             <dvt:o1Axis/>
@@ -107,7 +137,7 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:lineGraph>
         </af:gridCell>
-        <af:gridCell marginStart="5px" marginEnd="5px" width="50%" id="gc9">
+        <af:gridCell width="33%" id="gc9">
           <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot17" inlineStyle="font-size:11px;"/>
           <dvt:lineGraph id="graph6" value="#{bindings.TotalFaturadoClientePorItem1.graphModel}"
                          subType="LINE_VERT_ABS">
@@ -115,7 +145,22 @@
               <dvt:specialEffects/>
             </dvt:background>
             <dvt:graphPlotArea/>
-            <dvt:seriesSet>
+            <dvt:seriesSet markerDisplayed="true">
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:lineGraph>
+        </af:gridCell>
+        <af:gridCell id="gc1" width="33%">
+          <af:outputText value="Total Venda,Total Faturado/ Mês - Peso" id="ot21" inlineStyle="font-size:11px;"/>
+          <dvt:lineGraph id="graph1" value="#{bindings.PesoTotalMesPorItemView1.graphModel}" subType="LINE_VERT_ABS">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet markerDisplayed="true">
               <dvt:series/>
             </dvt:seriesSet>
             <dvt:o1Axis/>
@@ -130,6 +175,7 @@
         <af:gridCell marginStart="5px" marginEnd="5px" width="33%" id="gc12"/>
       </af:gridRow>
     </af:panelGridLayout>
+    <af:spacer width="10" height="10" id="s6"/>
     <af:panelHeader text="DadosRegressaoItemView1" id="ph2" visible="false">
       <af:panelFormLayout partialTriggers="md1" id="pfl1">
         <af:panelLabelAndMessage label="#{bindings.IdItem.hints.label}" id="plam1">

@@ -21,6 +21,8 @@
               id="TotalFaturadoClientePorItem1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="DadosRegresItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DadosRegresItemView1Iterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="PesoTotalMesPorItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="PesoTotalMesPorItemView1Iterator" ChangeEventPolicy="ppr"/>
   </executables>
   <bindings>
     <action IterBinding="DadosRegressaoItemView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
@@ -161,5 +163,19 @@
         <Item Value="CenarioprovavelCli"/>
       </AttrNames>
     </attributeValues>
+    <graph IterBinding="PesoTotalMesPorItemView1Iterator" id="PesoTotalMesPorItemView1"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
+      <graphDataMap convert="false" leafOnly="true">
+        <series>
+          <data>
+            <item value="Pesocli" label="Peso Vendido "/>
+            <item value="Pesofat" label="Peso Faturado"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Mes" label="MesDesc"/>
+        </groups>
+      </graphDataMap>
+    </graph>
   </bindings>
 </pageDefinition>
