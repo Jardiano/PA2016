@@ -17,8 +17,6 @@
               id="CenariosQuantCliPorItem1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="CenariosQuantFatPorItem2" RangeSize="-1" DataControl="AppModuleDataControl"
               id="CenariosQuantFatPorItem2Iterator" ChangeEventPolicy="ppr"/>
-    <iterator Binds="TotalFaturadoClientePorItem1" RangeSize="-1" DataControl="AppModuleDataControl"
-              id="TotalFaturadoClientePorItem1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="DadosRegresItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DadosRegresItemView1Iterator" ChangeEventPolicy="ppr"/>
     <iterator Binds="PesoTotalMesPorItemView1" RangeSize="-1" DataControl="AppModuleDataControl"
@@ -105,20 +103,6 @@
         </groups>
       </graphDataMap>
     </graph>
-    <graph IterBinding="TotalFaturadoClientePorItem1Iterator" id="TotalFaturadoClientePorItem1"
-           xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
-      <graphDataMap convert="false" leafOnly="true">
-        <series>
-          <data>
-            <item value="Totalcliente" label="Total Vendido"/>
-            <item value="Totalfaturado" label="Total Faturado"/>
-          </data>
-        </series>
-        <groups>
-          <item value="MesNum" label="MesDesc"/>
-        </groups>
-      </graphDataMap>
-    </graph>
     <graph IterBinding="DadosRegresItemView1Iterator" id="DadosRegresItemView1"
            xmlns="http://xmlns.oracle.com/adfm/dvt" type="LINE_VERT_ABS">
       <graphDataMap convert="false" leafOnly="true">
@@ -168,8 +152,8 @@
       <graphDataMap convert="false" leafOnly="true">
         <series>
           <data>
-            <item value="Pesocli" label="Peso Vendido "/>
-            <item value="Pesofat" label="Peso Faturado"/>
+            <item value="Pesocli" label="Total Vendido "/>
+            <item value="Pesofat" label="Total Faturado"/>
           </data>
         </series>
         <groups>

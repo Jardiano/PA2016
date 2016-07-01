@@ -42,6 +42,54 @@
     <af:panelGroupLayout id="pgl6" layout="vertical"/>
     <af:panelGridLayout id="pgl5">
       <af:gridRow marginTop="5px" height="100%" id="gr3">
+        <af:gridCell width="50%" id="gc7">
+          <af:outputText value="Informações sobre venda" id="ot14" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph4" value="#{bindings.CenariosQuantCliPorItem1.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+          <af:panelGroupLayout id="pgl3" layout="vertical">
+            <f:facet name="separator">
+              <af:spacer width="10" height="10" id="s2"/>
+            </f:facet>
+            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaCli.inputValue} kg" id="ot4"/>
+            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaCli.inputValue} kg" id="ot12"/>
+            <af:outputText value="Valor provável : #{bindings.CenarioprovavelCli.inputValue} kg" id="ot13"/>
+            <af:separator id="s3"/>
+          </af:panelGroupLayout>
+        </af:gridCell>
+        <af:gridCell width="50%" id="gc8">
+          <af:outputText value="Informações sobre estoque" id="ot16" inlineStyle="font-size:11px;"/>
+          <dvt:barGraph id="graph5" value="#{bindings.CenariosQuantFatPorItem2.graphModel}" subType="BAR_VERT_CLUST">
+            <dvt:background>
+              <dvt:specialEffects/>
+            </dvt:background>
+            <dvt:graphPlotArea/>
+            <dvt:seriesSet>
+              <dvt:series/>
+            </dvt:seriesSet>
+            <dvt:o1Axis/>
+            <dvt:y1Axis/>
+            <dvt:legendArea automaticPlacement="AP_NEVER"/>
+          </dvt:barGraph>
+          <af:panelGroupLayout id="pgl7" layout="vertical">
+            <f:facet name="separator">
+              <af:spacer width="10" height="10" id="s4"/>
+            </f:facet>
+            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaFat.inputValue} kg" id="ot18"/>
+            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaFat.inputValue} kg" id="ot19"/>
+            <af:outputText value="Valor provável : #{bindings.CenarioprovavelFat.inputValue} kg" id="ot20"/>
+            <af:separator id="s5"/>
+          </af:panelGroupLayout>
+        </af:gridCell>
         <af:gridCell id="gc2">
           <af:table id="t1" rows="#{bindings.ItemView1.rangeSize}" fetchSize="#{bindings.ItemView1.rangeSize}"
                     emptyText="#{bindings.ItemView1.viewable ? 'No data to display.' : 'Access Denied.'}" var="row"
@@ -72,54 +120,6 @@
             </af:column>
           </af:table>
         </af:gridCell>
-        <af:gridCell width="50%" id="gc7">
-          <af:outputText value="Informações sobre venda" id="ot14" inlineStyle="font-size:11px;"/>
-          <dvt:barGraph id="graph4" value="#{bindings.CenariosQuantCliPorItem1.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:barGraph>
-          <af:panelGroupLayout id="pgl3" layout="vertical">
-            <f:facet name="separator">
-              <af:spacer width="10" height="10" id="s2"/>
-            </f:facet>
-            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaCli.inputValue} KG" id="ot4"/>
-            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaCli.inputValue} KG" id="ot12"/>
-            <af:outputText value="Valor provável : #{bindings.CenarioprovavelCli.inputValue} KG" id="ot13"/>
-            <af:separator id="s3"/>
-          </af:panelGroupLayout>
-        </af:gridCell>
-        <af:gridCell width="50%" id="gc8">
-          <af:outputText value="Informações sobre estoque" id="ot16" inlineStyle="font-size:11px;"/>
-          <dvt:barGraph id="graph5" value="#{bindings.CenariosQuantFatPorItem2.graphModel}" subType="BAR_VERT_CLUST">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet>
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:barGraph>
-          <af:panelGroupLayout id="pgl7" layout="vertical">
-            <f:facet name="separator">
-              <af:spacer width="10" height="10" id="s4"/>
-            </f:facet>
-            <af:outputText value="Valor Pessimista : #{bindings.CenariopessimistaFat.inputValue} KG" id="ot18"/>
-            <af:outputText value="Valor Otimista : #{bindings.CenariootimistaFat.inputValue} KG" id="ot19"/>
-            <af:outputText value="Valor provável : #{bindings.CenarioprovavelFat.inputValue} KG" id="ot20"/>
-            <af:separator id="s5"/>
-          </af:panelGroupLayout>
-        </af:gridCell>
       </af:gridRow>
       <af:gridRow id="gr5" height="100%">
         <af:gridCell id="gc13" width="33%">
@@ -137,24 +137,8 @@
             <dvt:legendArea automaticPlacement="AP_NEVER"/>
           </dvt:lineGraph>
         </af:gridCell>
-        <af:gridCell width="33%" id="gc9">
-          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot17" inlineStyle="font-size:11px;"/>
-          <dvt:lineGraph id="graph6" value="#{bindings.TotalFaturadoClientePorItem1.graphModel}"
-                         subType="LINE_VERT_ABS">
-            <dvt:background>
-              <dvt:specialEffects/>
-            </dvt:background>
-            <dvt:graphPlotArea/>
-            <dvt:seriesSet markerDisplayed="true">
-              <dvt:series/>
-            </dvt:seriesSet>
-            <dvt:o1Axis/>
-            <dvt:y1Axis/>
-            <dvt:legendArea automaticPlacement="AP_NEVER"/>
-          </dvt:lineGraph>
-        </af:gridCell>
-        <af:gridCell id="gc1" width="33%">
-          <af:outputText value="Total Venda,Total Faturado/ Mês - Peso" id="ot21" inlineStyle="font-size:11px;"/>
+        <af:gridCell id="gc1" width="33%" marginStart="5px" marginEnd="5px">
+          <af:outputText value="Total Venda,Total Faturado/ Mês" id="ot21" inlineStyle="font-size:11px;"/>
           <dvt:lineGraph id="graph1" value="#{bindings.PesoTotalMesPorItemView1.graphModel}" subType="LINE_VERT_ABS">
             <dvt:background>
               <dvt:specialEffects/>
